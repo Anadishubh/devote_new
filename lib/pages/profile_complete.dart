@@ -38,7 +38,7 @@ class _ProfileCompleteState extends State<ProfileComplete> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
               Padding(

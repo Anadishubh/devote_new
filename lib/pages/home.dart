@@ -175,6 +175,8 @@ class _HomeState extends State<Home> {
                 left: 10,
                 right: 10,
               ),
+              decoration:
+                  const BoxDecoration(color: AppColors.drawerBackground),
               child: Column(
                 children: [
                   const Spacer(),
@@ -261,9 +263,10 @@ class _HomeState extends State<Home> {
                               padding: const EdgeInsets.only(left: 5, right: 5),
                               height: 15,
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(4.0),
+                                borderRadius: BorderRadius.circular(
+                                    4.0), // Adjust the radius as needed
                                 child: LinearProgressIndicator(
-                                  value: 0.8,
+                                  value: 0.6,
                                   backgroundColor: Colors.grey.shade100,
                                   color: AppColors.primaryColor,
                                 ),
@@ -271,13 +274,12 @@ class _HomeState extends State<Home> {
                             ),
                             Container(
                                 height: 15,
-                                padding:
-                                    const EdgeInsets.only(left: 15, right: 5),
+                                padding: const EdgeInsets.only(left: 15, right: 5),
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   "Profile Status - 80%",
                                   style: FontConstant.styleRegular(
-                                      fontSize: 12,
+                                      fontSize: 10,
                                       color: AppColors.constColor),
                                 ))
                           ]),
@@ -288,8 +290,6 @@ class _HomeState extends State<Home> {
                   ),
                 ],
               ),
-              decoration:
-                  const BoxDecoration(color: AppColors.drawerBackground),
             ),
             ListTile(
               leading: SvgPicture.asset(
@@ -469,7 +469,7 @@ class _HomeState extends State<Home> {
               },
             ),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Get.offAndToNamed('/login');
               },
               child: Container(
@@ -494,6 +494,9 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 40,
             )
           ],
         ),

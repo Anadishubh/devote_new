@@ -115,7 +115,7 @@ class HomeBody extends StatelessWidget {
                   },
                   child: Container(
                     margin: EdgeInsets.only(
-                        top: 5, bottom: 10, left: 10, right: 10),
+                        top: 5, bottom: 15, left: 10,),
                     width: 220,
                     decoration: BoxDecoration(
                       color: selectedIndex == index
@@ -226,7 +226,7 @@ class HomeBody extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.only(left: 20, right: 20),
                   margin: EdgeInsets.only(
-                      top: 5, bottom: 10, left: 10, right: 10),
+                      top: 5, bottom: 10, left: 10,),
                   //   width: 210,
                   decoration: BoxDecoration(
                     color: selectedIndex == index
@@ -318,7 +318,7 @@ class HomeBody extends StatelessWidget {
                 },
                 child: Container(
                   margin: EdgeInsets.only(
-                      top: 5, bottom: 10, left: 10, right: 10),
+                      top: 5, bottom: 10, left: 10),
                   //  width: 320,
                   decoration: BoxDecoration(
                     color: selectedIndex == index
@@ -504,7 +504,7 @@ class HomeBody extends StatelessWidget {
                 },
                 child: Container(
                   margin: EdgeInsets.only(
-                      top: 5, bottom: 10, left: 10, right: 10),
+                      top: 5, bottom: 10, left: 10),
                   //  width: 320,
                   decoration: BoxDecoration(
                     color: selectedIndex == index

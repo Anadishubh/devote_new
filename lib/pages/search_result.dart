@@ -203,7 +203,7 @@ class _SearchResultState extends State<SearchResult> {
                         },
                         child: Container(
                           margin: const EdgeInsets.only(
-                              top: 5, bottom: 10, left: 10, right: 10),
+                              top: 5, bottom: 10, left: 10, right: 0),
                           //  width: 320,
                           decoration: BoxDecoration(
                             color: selectedIndex == index

@@ -158,7 +158,7 @@ class BasicDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
+      padding: const EdgeInsets.only(left: 12, right: 12, top: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -170,13 +170,13 @@ class BasicDetails extends StatelessWidget {
                 style: FontConstant.styleSemiBold(
                     fontSize: 12, color: Colors.black),
               ),
-              const SizedBox(width: 5),
+              const SizedBox(width: 2),
               Text(
                 '|',
                 style: FontConstant.styleSemiBold(
                     fontSize: 12, color: Colors.black),
               ),
-              const SizedBox(width: 5),
+              const SizedBox(width: 2),
               Text(
                 'Last Login: 3 minutes ago',
                 style: FontConstant.styleSemiBold(
@@ -373,8 +373,8 @@ class _CompatiblityState extends State<Compatiblity> {
         ClipOval(
           child: Image.asset(
             imagePath,
-            width: 80,
-            height: 80,
+            width: 50,
+            height: 50,
             fit: BoxFit.cover,
           ),
         ),
@@ -393,7 +393,7 @@ class _CompatiblityState extends State<Compatiblity> {
       width: double.infinity,
       color: Colors.white,
       padding:
-          const EdgeInsets.only(left: 20.0, right: 20, top: 10, bottom: 10),
+          const EdgeInsets.only(left: 18.0, right: 18, top: 10, bottom: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -409,13 +409,13 @@ class _CompatiblityState extends State<Compatiblity> {
             children: [
               buildAvatarColumn('assets/images/girl1.png', 'Her \nPreferences'),
               const Padding(
-                  padding: EdgeInsets.only(bottom: 45.0, left: 2),
+                  padding: EdgeInsets.only(bottom: 45.0),
                   child: Icon(
                     Icons.arrow_back,
                     color: Color(0xff583789),
                   )),
               Padding(
-                padding: const EdgeInsets.only(bottom: 45.0, left: 2),
+                padding: const EdgeInsets.only(bottom: 45.0),
                 child: Text(
                   'You match 5/8 of \nher preferences',
                   textAlign: TextAlign.center,
@@ -424,7 +424,7 @@ class _CompatiblityState extends State<Compatiblity> {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(bottom: 45, left: 2),
+                padding: EdgeInsets.only(bottom: 45),
                 child: Icon(
                   Icons.arrow_forward,
                   color: Color(0xff583789),

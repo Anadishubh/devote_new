@@ -9,7 +9,7 @@ import 'package:devotee_matrimony/pages/photo_upload.dart';
 import 'package:devotee_matrimony/pages/profile1_page.dart';
 import 'package:devotee_matrimony/pages/profile2_page.dart';
 import 'package:devotee_matrimony/pages/profile_complete.dart';
-import 'package:devotee_matrimony/pages/profile_details.dart';
+import 'package:devotee_matrimony/pages/profile_details_girl.dart';
 import 'package:devotee_matrimony/pages/search_page.dart';
 import 'package:devotee_matrimony/pages/search_result.dart';
 import 'package:get/get.dart';

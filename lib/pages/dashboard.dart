@@ -2,6 +2,7 @@ import 'package:devotee_matrimony/constants/color_constant.dart';
 import 'package:devotee_matrimony/constants/font_constant.dart';
 import 'package:devotee_matrimony/pages/home.dart';
 import 'package:devotee_matrimony/pages/search_page.dart';
+import 'package:devotee_matrimony/pages/user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 
@@ -26,10 +27,11 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: const NeverScrollableScrollPhysics(),
         controller: controller,
         children: const [
           Center(child: Text('chat')),
-          Center(child: Text('profile')),
+          UserProfile(),
           Center(child: Text('liked')),
           SearchPage(),
           Home(),
