@@ -51,7 +51,6 @@ class _DashboardState extends State<Dashboard> {
               style: FontConstant.styleSemiBold(fontSize: 12, color: Colors.white),
             ),
             backgroundColor: Colors.white,
-            selectedIcon: Icon(Icons.chat)
           ),
           BottomBarItem(
             icon: const Icon(Icons.person_outline),
@@ -60,7 +59,6 @@ class _DashboardState extends State<Dashboard> {
               style: FontConstant.styleSemiBold(fontSize: 12, color: Colors.white),
             ),
             backgroundColor: Colors.white,
-            selectedIcon: Icon(Icons.person)
           ),
           BottomBarItem(
             icon: const Icon(Icons.favorite_border),
@@ -69,7 +67,6 @@ class _DashboardState extends State<Dashboard> {
               style: FontConstant.styleSemiBold(fontSize: 12, color: Colors.white),
             ),
             backgroundColor: Colors.white,
-            selectedIcon: Icon(Icons.favorite)
           ),
           BottomBarItem(
             icon: const Icon(Icons.search),

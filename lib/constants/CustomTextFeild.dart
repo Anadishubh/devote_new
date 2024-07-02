@@ -1,3 +1,4 @@
+import 'package:devotee_matrimony/constants/color_constant.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -33,18 +34,18 @@ class CustomTextField extends StatelessWidget {
       keyboardType: keyboardType,
       maxLength: maxlength,
       decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
         labelText: labelText,
         hintText: hintText,
         counterText: "",
         contentPadding: EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.grey,
-          ),
+          borderSide: BorderSide(),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.black,
+            color: AppColors.primaryColor,
           ),
         ),
         border: OutlineInputBorder(),

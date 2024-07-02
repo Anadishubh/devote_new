@@ -58,20 +58,20 @@ class _OtpState extends State<Otp> {
               ),
             ),
             Positioned(
-              top: 70,
-              left: screenWidth * 0.4,
-              right: screenWidth * 0.4,
+              top: 60,
+              left: screenWidth * 0.25,
+              right: screenWidth * 0.25,
               child: Image.asset('assets/images/otp.png'),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 220.0),
+              padding: const EdgeInsets.only(top: 300.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Center(
                     child: Text(
                       'Code is sent to +91 *******876',
-                      style: FontConstant.styleMedium(
+                      style: FontConstant.styleRegular(
                         fontSize: 16,
                         color: Colors.black,
                       ),
@@ -94,7 +94,7 @@ class _OtpState extends State<Otp> {
                       Text(
                         "Didn't receive OTP?",
                         style: FontConstant.styleRegular(
-                          fontSize: 14,
+                          fontSize: 16,
                           color: Colors.grey.shade600,
                         ),
                       ),
@@ -116,25 +116,22 @@ class _OtpState extends State<Otp> {
                   Text(
                     'Resend in 00:15',
                     style: FontConstant.styleRegular(
-                      fontSize: 14,
+                      fontSize: 16,
                       color: Colors.grey.shade600,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 30),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: SizedBox(
-                      height: 45,
-                      child: CustomButton(
-                        text: 'VERIFY',
-                        onPressed: () {
-                          Get.toNamed('/profile1');
-                        },
-                        color: AppColors.primaryColor,
-                        textStyle: FontConstant.styleRegular(
-                          fontSize: 18,
-                          color: Colors.white,
-                        ),
+                    child: CustomButton(
+                      text: 'VERIFY',
+                      onPressed: () {
+                        Get.toNamed('/profile1');
+                      },
+                      color: AppColors.primaryColor,
+                      textStyle: FontConstant.styleRegular(
+                        fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),

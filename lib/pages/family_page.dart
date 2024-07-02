@@ -47,8 +47,8 @@ class _FamilyPageState extends State<FamilyPage> {
             ),
             Positioned(
               top: 20,
-              left: screenWidth * 0.25,
-              right: screenWidth * 0.25,
+              left: screenWidth * 0.35,
+              right: screenWidth * 0.35,
               child: Image.asset('assets/images/family.png'),
             ),
             Padding(
@@ -120,23 +120,21 @@ class _FamilyPageState extends State<FamilyPage> {
       children: [
         Text(
           labelText,
-          style: FontConstant.styleMedium(fontSize: 14, color: Colors.black),
+          style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
         ),
         const SizedBox(height: 8),
-        SizedBox(
-          height: 45,
-          child: TextFormField(
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5),
-                borderSide: const BorderSide(color: AppColors.primaryColor),
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5),
-              ),
+        TextFormField(
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+              borderSide: const BorderSide(color: AppColors.primaryColor),
             ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+            ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 12)
           ),
         ),
       ],

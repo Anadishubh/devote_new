@@ -237,3 +237,40 @@ class StateController extends GetxController {
     selectedItem.value = value;
   }
 }
+
+
+class ComplexionController extends GetxController {
+  var selectedItem = RxnString();
+
+  static List<String> complexionColors() {
+    return [
+      'Fair',
+      'Medium',
+      'Olive',
+      'Brown',
+      'Dark',
+    ];
+  }
+
+  void selectItem(String? value) {
+    selectedItem.value = value;
+  }
+}
+class QualificationController extends GetxController {
+  var selectedItem = RxnString();
+
+  static List<String> qualifications() {
+    return [
+      'High School',
+      'Diploma',
+      'Bachelor\'s Degree',
+      'Master\'s Degree',
+      'Doctorate',
+      'Other',
+    ];
+  }
+
+  void selectItem(String? value) {
+    selectedItem.value = value;
+  }
+}

@@ -30,7 +30,8 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(bottom: screenHeight * 0.6,left: screenWidth*0.1),
+            margin: EdgeInsets.only(
+                bottom: screenHeight * 0.6, left: screenWidth * 0.1),
             decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage('assets/images/bg1.png'),
@@ -93,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: 14, color: AppColors.constColor),
               ),
               const SizedBox(
-                height: 30,
+                height: 15,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 18.0, right: 18),
@@ -123,7 +124,19 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(
-                height: 80,
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 18),
+                child: Text(
+                  textAlign: TextAlign.center,
+                  'If you are outside of India, You can use email id for login',
+                  style: FontConstant.styleRegular(
+                      fontSize: 18, color: Colors.white),
+                ),
+              ),
+              const SizedBox(
+                height: 40,
               ),
             ],
           ),

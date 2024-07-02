@@ -1,3 +1,5 @@
+import 'package:animated_custom_dropdown/custom_dropdown.dart';
+import 'package:devotee_matrimony/constants/profile_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants/button_constant.dart';
@@ -14,6 +16,9 @@ class EducationPage extends StatefulWidget {
 class _EducationPageState extends State<EducationPage> {
   @override
   Widget build(BuildContext context) {
+    QualificationController qualificationController =
+        Get.put(QualificationController());
+
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
@@ -36,7 +41,7 @@ class _EducationPageState extends State<EducationPage> {
         child: Stack(
           children: [
             Container(
-              height: screenHeight*0.4,
+              height: screenHeight * 0.4,
               width: screenWidth,
               decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -47,44 +52,56 @@ class _EducationPageState extends State<EducationPage> {
             ),
             Positioned(
               top: 20,
-              left: screenWidth * 0.25,
-              right: screenWidth * 0.25,
+              left: screenWidth * 0.3,
+              right: screenWidth * 0.3,
               child: Image.asset('assets/images/education.png'),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 18.0, right: 18, top: 190),
               child: Column(
                 children: [
-                  _buildFormField('Highest Qualification'),
-                  const SizedBox(height: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Qualification',
+                        style: FontConstant.styleRegular(
+                            fontSize: 16, color: Colors.black),
+                      ),
+                      const SizedBox(height: 10,),
+                      CustomDropdown(
+                          items: QualificationController.qualifications(),
+                          onChanged: qualificationController.selectedItem.call)
+                    ],
+                  ),
+                  const SizedBox(height: 10),
                   _buildFormField('College'),
                   const SizedBox(height: 20),
                   _buildFormField('Diploma (if any)'),
-                  const SizedBox(height: 20),
-                  const SizedBox(height: 20),
-                  SizedBox(
-                    height: 44,
+                  const SizedBox(height: 40),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 18.0,right: 18),
                     child: CustomButton(
                       text: 'CONTINUE',
                       onPressed: () {
                         Get.toNamed('/family');
                       },
                       color: AppColors.primaryColor,
-                      textStyle: FontConstant.styleMedium(
-                          fontSize: 16, color: Colors.white),
+                      textStyle: FontConstant.styleRegular(
+                          fontSize: 20, color: Colors.white),
                     ),
                   ),
                   const SizedBox(height: 20),
-                  SizedBox(
-                    height: 44,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 18.0,right: 18),
                     child: CustomButton(
                       text: 'Skip',
                       onPressed: () {
-                        Get.toNamed('/dashboard');
+                        Get.offAndToNamed('/dashboard');
                       },
                       color: Colors.transparent,
-                      textStyle: FontConstant.styleMedium(
-                          fontSize: 16, color: Colors.black),
+                      textStyle: FontConstant.styleRegular(
+                          fontSize: 20, color: Colors.black),
                     ),
                   ),
                 ],
@@ -102,13 +119,11 @@ class _EducationPageState extends State<EducationPage> {
       children: [
         Text(
           labelText,
-          style: FontConstant.styleMedium(fontSize: 14, color: Colors.black),
+          style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
         ),
         const SizedBox(height: 8),
-        SizedBox(
-          height: 40,
-          child: TextFormField(
-            decoration: InputDecoration(
+        TextFormField(
+          decoration: InputDecoration(
               filled: true,
               fillColor: Colors.white,
               focusedBorder: OutlineInputBorder(
@@ -118,8 +133,7 @@ class _EducationPageState extends State<EducationPage> {
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(5),
               ),
-            ),
-          ),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 12)),
         ),
       ],
     );

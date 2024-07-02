@@ -48,56 +48,53 @@ class _MobilePageState extends State<MobilePage> {
             ),
             Positioned(
               top: 60,
-              left: screenWidth * 0.4,
-              right: screenWidth * 0.4,
+              left: screenWidth * 0.25,
+              right: screenWidth * 0.25,
               child: Image.asset('assets/images/lock.png'),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 220.0),
+              padding: const EdgeInsets.only(top: 300.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Center(
                     child: Text(
                       'Enter Mobile Number or Email ID',
-                      style: FontConstant.styleSemiBold(
+                      style: FontConstant.styleRegular(
                           fontSize: 16, color: Colors.black),
                     ),
                   ),
                   const SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: SizedBox(
-                      height: 45,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
-                            borderSide: const BorderSide(
-                                color: AppColors.primaryColor),
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
-                          ),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        filled: true,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: const BorderSide(
+                              color: AppColors.primaryColor),
                         ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
                       ),
                     ),
                   ),
                   const SizedBox(height: 20),
-                  SizedBox(
-                    height: 40,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 22.0,right: 22),
-                      child: CustomButton(
-                        text: 'SEND OTP',
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/otp');
-                          // Get.toNamed('/otp');
-                        },
-                        color: AppColors.primaryColor,
-                        textStyle: FontConstant.styleRegular(
-                            fontSize: 16, color: Colors.white),
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 22,right: 22),
+                    child: CustomButton(
+                      text: 'SEND OTP',
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/otp');
+                        // Get.toNamed('/otp');
+                      },
+                      color: AppColors.primaryColor,
+                      textStyle: FontConstant.styleRegular(
+                          fontSize: 20, color: Colors.white),
                     ),
                   ),
                 ],

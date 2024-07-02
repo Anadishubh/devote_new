@@ -1,4 +1,6 @@
+import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:devotee_matrimony/constants/button_constant.dart';
+import 'package:devotee_matrimony/constants/profile_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:devotee_matrimony/constants/color_constant.dart';
 import 'package:devotee_matrimony/constants/font_constant.dart';
@@ -12,6 +14,8 @@ class Profile2 extends StatefulWidget {
 }
 
 class _Profile2State extends State<Profile2> {
+  ComplexionController complexionController = Get.put(ComplexionController());
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -36,7 +40,7 @@ class _Profile2State extends State<Profile2> {
         child: Stack(
           children: [
             Container(
-              height: screenHeight*0.4,
+              height: screenHeight * 0.4,
               width: screenWidth,
               decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -46,13 +50,12 @@ class _Profile2State extends State<Profile2> {
               ),
             ),
             Positioned(
-              top: 20,
-              left: screenWidth * 0.25,
-              right: screenWidth * 0.25,
+              left: screenWidth * 0.3,
+              right: screenWidth * 0.3,
               child: Image.asset('assets/images/profile.png'),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 18.0, right: 18, top: 190),
+              padding: const EdgeInsets.only(left: 22.0, right: 22, top: 190),
               child: Column(
                 children: [
                   Row(
@@ -83,21 +86,34 @@ class _Profile2State extends State<Profile2> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  _buildFormField('Complexion'),
-                  const SizedBox(height: 50),
-                  SizedBox(
-                    height: 40,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 14.0,right: 14),
-                      child: CustomButton(
-                        text: 'CONTINUE',
-                        onPressed: () {
-                          Get.toNamed('/education');
-                        },
-                        color: AppColors.primaryColor,
-                        textStyle: FontConstant.styleMedium(
-                            fontSize: 16, color: Colors.white),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Complexion',
+                        style: FontConstant.styleRegular(
+                            fontSize: 16, color: Colors.black),
                       ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      CustomDropdown(
+                        hintText: 'Select option',
+                          items: ComplexionController.complexionColors(),
+                          onChanged: complexionController.selectedItem),
+                    ],
+                  ),
+                  const SizedBox(height: 50),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 14.0, right: 14),
+                    child: CustomButton(
+                      text: 'CONTINUE',
+                      onPressed: () {
+                        Get.toNamed('/education');
+                      },
+                      color: AppColors.primaryColor,
+                      textStyle: FontConstant.styleRegular(
+                          fontSize: 20, color: Colors.white),
                     ),
                   ),
                 ],
@@ -115,23 +131,21 @@ class _Profile2State extends State<Profile2> {
       children: [
         Text(
           labelText,
-          style: FontConstant.styleMedium(fontSize: 14, color: Colors.black),
+          style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
         ),
         const SizedBox(height: 8),
-        SizedBox(
-          height: 40,
-          child: TextFormField(
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5),
-                borderSide: const BorderSide(color: AppColors.primaryColor),
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5),
-              ),
+        TextFormField(
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+              borderSide: const BorderSide(color: AppColors.primaryColor),
             ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+            ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 12),
           ),
         ),
       ],
@@ -144,76 +158,70 @@ class _Profile2State extends State<Profile2> {
       children: [
         Text(
           'Date Of Birth',
-          style: FontConstant.styleMedium(fontSize: 14, color: Colors.black),
+          style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
         ),
         const SizedBox(height: 8),
         Row(
           children: [
             Expanded(
-              child: SizedBox(
-                height: 45,
-                child: TextFormField(
-                  keyboardType: TextInputType.number,
-                  maxLength: 2,
-                  decoration: InputDecoration(
-                    counterText: "",
-                    hintText: 'Day',
-                    filled: true,
-                    fillColor: Colors.white,
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: const BorderSide(color: AppColors.primaryColor),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
+              child: TextFormField(
+                keyboardType: TextInputType.number,
+                maxLength: 2,
+                decoration: InputDecoration(
+                  counterText: "",
+                  hintText: 'Day',
+                  filled: true,
+                  fillColor: Colors.white,
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: const BorderSide(color: AppColors.primaryColor),
                   ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 12),
                 ),
               ),
             ),
             const SizedBox(width: 8),
             Expanded(
-              child: SizedBox(
-                height: 45,
-                child: TextFormField(
-                  keyboardType: TextInputType.number,
-                  maxLength: 2,
-                  decoration: InputDecoration(
-                    counterText: "",
-                    hintText: 'Month',
-                    filled: true,
-                    fillColor: Colors.white,
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: const BorderSide(color: AppColors.primaryColor),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
+              child: TextFormField(
+                keyboardType: TextInputType.number,
+                maxLength: 2,
+                decoration: InputDecoration(
+                  counterText: "",
+                  hintText: 'Month',
+                  filled: true,
+                  fillColor: Colors.white,
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: const BorderSide(color: AppColors.primaryColor),
                   ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 12),
                 ),
               ),
             ),
             const SizedBox(width: 8),
             Expanded(
-              child: SizedBox(
-                height: 45,
-                child: TextFormField(
-                  keyboardType: TextInputType.number,
-                  maxLength: 4,
-                  decoration: InputDecoration(
-                    counterText: "",
-                    hintText: 'Year',
-                    filled: true,
-                    fillColor: Colors.white,
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: const BorderSide(color: AppColors.primaryColor),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
+              child: TextFormField(
+                keyboardType: TextInputType.number,
+                maxLength: 4,
+                decoration: InputDecoration(
+                  counterText: "",
+                  hintText: 'Year',
+                  filled: true,
+                  fillColor: Colors.white,
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: const BorderSide(color: AppColors.primaryColor),
                   ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 12),
                 ),
               ),
             ),

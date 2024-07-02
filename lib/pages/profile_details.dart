@@ -41,6 +41,14 @@ class ProfileDetailsScreen extends StatelessWidget {
           children: [
             ProfileHeader(),
             BasicDetails(),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.only(right: 18.0, left: 18),
+              child: About(),
+            ),
+            Compatiblity(),
           ],
         ),
       ),
@@ -159,17 +167,20 @@ class BasicDetails extends StatelessWidget {
             children: [
               Text(
                 'Profile created by myself',
-                style: FontConstant.styleBold(fontSize: 12, color: Colors.black),
+                style: FontConstant.styleSemiBold(
+                    fontSize: 12, color: Colors.black),
               ),
               const SizedBox(width: 5),
               Text(
                 '|',
-                style: FontConstant.styleBold(fontSize: 12, color: Colors.black),
+                style: FontConstant.styleSemiBold(
+                    fontSize: 12, color: Colors.black),
               ),
               const SizedBox(width: 5),
               Text(
                 'Last Login: 3 minutes ago',
-                style: FontConstant.styleBold(fontSize: 12, color: Colors.black),
+                style: FontConstant.styleSemiBold(
+                    fontSize: 12, color: Colors.black),
               ),
             ],
           ),
@@ -283,6 +294,226 @@ class DetailRow extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class About extends StatefulWidget {
+  const About({super.key});
+
+  @override
+  State<About> createState() => _AboutState();
+}
+
+class _AboutState extends State<About> with SingleTickerProviderStateMixin {
+  TabController? tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 5, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    tabController?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        TabBar(
+          tabAlignment: TabAlignment.start,
+          controller: tabController,
+          isScrollable: true,
+          indicatorColor: AppColors.primaryColor,
+          labelColor: AppColors.primaryColor,
+          tabs: const [
+            Tab(text: 'About Janvi'),
+            Tab(text: 'Lifestyle & Appearances'),
+            Tab(text: 'Background'),
+            Tab(text: 'Contact Details'),
+            Tab(text: 'Professional Details'),
+          ],
+        ),
+        SizedBox(
+          height: 300,
+          child: TabBarView(
+            controller: tabController,
+            children: const [
+              Center(child: Text('About Janvi Content')),
+              Center(child: Text('Lifestyle & Appearances Content')),
+              Center(child: Text('Background Content')),
+              Center(child: Text('Contact Details Content')),
+              Center(child: Text('Professional Details Content')),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class Compatiblity extends StatefulWidget {
+  const Compatiblity({super.key});
+
+  @override
+  State<Compatiblity> createState() => _CompatiblityState();
+}
+
+class _CompatiblityState extends State<Compatiblity> {
+  Widget buildAvatarColumn(String imagePath, String label) {
+    return Column(
+      children: [
+        ClipOval(
+          child: Image.asset(
+            imagePath,
+            width: 80,
+            height: 80,
+            fit: BoxFit.cover,
+          ),
+        ),
+        Text(
+          label,
+          textAlign: TextAlign.center,
+          style: FontConstant.styleMedium(fontSize: 14, color: Colors.black),
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      color: Colors.white,
+      padding:
+          const EdgeInsets.only(left: 20.0, right: 20, top: 10, bottom: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Compatibility Rate:',
+            style: FontConstant.styleMedium(
+              fontSize: 16,
+              color: AppColors.primaryColor,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              buildAvatarColumn('assets/images/girl1.png', 'Her \nPreferences'),
+              const Padding(
+                  padding: EdgeInsets.only(bottom: 45.0, left: 2),
+                  child: Icon(
+                    Icons.arrow_back,
+                    color: Color(0xff583789),
+                  )),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 45.0, left: 2),
+                child: Text(
+                  'You match 5/8 of \nher preferences',
+                  textAlign: TextAlign.center,
+                  style: FontConstant.styleMedium(
+                      fontSize: 14, color: const Color(0xff583789)),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 45, left: 2),
+                child: Icon(
+                  Icons.arrow_forward,
+                  color: Color(0xff583789),
+                ),
+              ),
+              const Spacer(),
+              buildAvatarColumn('assets/images/avatar.jpg', 'Your \nMatch'),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const InfoRow('Age', '20 to 30', false),
+                const InfoRow('Height', "5' 4\" to 6' 3\"", true),
+                const InfoRow('Marital Status', 'Never Married', false),
+                const InfoRow('Religion / Community', 'Hindu', true),
+                const InfoRow('Country Living in', 'India', true),
+                const InfoRow('State Living in', 'New Delhi', true),
+                const InfoRow('Annual Income', 'INR 2 lakhs to 15 lakhs', true),
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: AppColors.primaryColor,
+                        ),
+                        child: const Text('CALL NOW'),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: const Color(0xff583789),
+                        ),
+                        child: const Text('CHAT NOW'),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class InfoRow extends StatelessWidget {
+  final String title;
+  final String value;
+  final bool isValid;
+
+  const InfoRow(this.title, this.value, this.isValid, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: FontConstant.styleMedium(
+                      fontSize: 15, color: Colors.black),
+                ),
+                Text(
+                  value,
+                  style: FontConstant.styleMedium(
+                      fontSize: 12, color: Colors.grey.shade600),
+                ),
+              ],
+            ),
+          ),
+          Icon(
+            isValid ? Icons.check_circle : Icons.cancel,
+            color: isValid ? Colors.green : Colors.red,
           ),
         ],
       ),

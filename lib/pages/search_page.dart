@@ -38,6 +38,7 @@ class _SearchPageState extends State<SearchPage> {
           'Search',
           style: FontConstant.styleSemiBold(fontSize: 18, color: Colors.white),
         ),
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Stack(

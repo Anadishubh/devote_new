@@ -33,10 +33,16 @@ class _OccupationState extends State<Occupation> {
           style: FontConstant.styleSemiBold(
               fontSize: 18, color: AppColors.constColor),
         ),
+        leading: IconButton(
+          icon: Image.asset('assets/images/icons/arrow.png'),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Stack(children: [
         Container(
-          height: screenHeight*0.4,
+          height: screenHeight * 0.4,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/images/bg3.png'),
@@ -54,72 +60,72 @@ class _OccupationState extends State<Occupation> {
                   child: Image.asset("assets/images/occupation.png"),
                 ),
                 Container(
-                    padding: EdgeInsets.only(bottom: 5),
+                    padding: const EdgeInsets.only(bottom: 5),
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Occupation",
-                      style: FontConstant.styleSemiBold(
-                          fontSize: 15, color: AppColors.black),
+                      style: FontConstant.styleRegular(
+                          fontSize: 16, color: AppColors.black),
                     )),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: CustomTextField(controller: occupation),
                 ),
                 Container(
-                    padding: EdgeInsets.only(bottom: 5),
+                    padding: const EdgeInsets.only(bottom: 5),
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Current Job Location",
-                      style: FontConstant.styleSemiBold(
-                          fontSize: 15, color: AppColors.black),
+                      style: FontConstant.styleRegular(
+                          fontSize: 16, color: AppColors.black),
                     )),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: CustomTextField(controller: currentjoblocation),
                 ),
                 Container(
-                    padding: EdgeInsets.only(bottom: 5),
+                    padding: const EdgeInsets.only(bottom: 5),
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Company Name",
-                      style: FontConstant.styleSemiBold(
-                          fontSize: 15, color: AppColors.black),
+                      style: FontConstant.styleRegular(
+                          fontSize: 16, color: AppColors.black),
                     )),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: CustomTextField(controller: companyname),
                 ),
                 Container(
-                    padding: EdgeInsets.only(bottom: 5),
+                    padding: const EdgeInsets.only(bottom: 5),
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Current Job",
-                      style: FontConstant.styleSemiBold(
-                          fontSize: 15, color: AppColors.black),
+                      style: FontConstant.styleRegular(
+                          fontSize: 16, color: AppColors.black),
                     )),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: CustomTextField(controller: currentjob),
                 ),
                 Container(
-                    padding: EdgeInsets.only(bottom: 5),
+                    padding: const EdgeInsets.only(bottom: 5),
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Working Experience",
-                      style: FontConstant.styleSemiBold(
-                          fontSize: 15, color: AppColors.black),
+                      style: FontConstant.styleRegular(
+                          fontSize: 16, color: AppColors.black),
                     )),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: CustomTextField(controller: workexperience),
                 ),
                 Container(
-                    padding: EdgeInsets.only(bottom: 5),
+                    padding: const EdgeInsets.only(bottom: 5),
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Current CTC",
-                      style: FontConstant.styleSemiBold(
-                          fontSize: 15, color: AppColors.black),
+                      style: FontConstant.styleRegular(
+                          fontSize: 16, color: AppColors.black),
                     )),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
@@ -128,13 +134,14 @@ class _OccupationState extends State<Occupation> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10, top: 10),
                   child: CustomButton(
-                      text: "FINISH",
-                      onPressed: () {
-                        Get.toNamed('/photo');
-                      },
-                      color: AppColors.primaryColor,
-                      textStyle: FontConstant.styleSemiBold(
-                          fontSize: 15, color: AppColors.constColor)),
+                    text: "FINISH",
+                    onPressed: () {
+                      Get.toNamed('/photo');
+                    },
+                    color: AppColors.primaryColor,
+                    textStyle: FontConstant.styleRegular(
+                        fontSize: 20, color: AppColors.constColor),
+                  ),
                 )
               ],
             ),

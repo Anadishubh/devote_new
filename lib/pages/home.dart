@@ -26,141 +26,143 @@ class _HomeState extends State<Home> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: AppColors.background,
-      body: Stack(children: [
-        Container(
-          height: screenHeight * 0.4,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/bg3.png'),
-              fit: BoxFit.fill,
+      body: Stack(
+        children: [
+          Container(
+            height: screenHeight * 0.4,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/bg3.png'),
+                fit: BoxFit.fill,
+              ),
             ),
           ),
-        ),
-        Column(
-          children: [
-            Stack(children: [
-              Container(
-                padding: const EdgeInsets.only(top: 60),
-                height: 150,
-                decoration: const BoxDecoration(
-                    color: AppColors.primaryColor,
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(18),
-                        bottomRight: Radius.circular(18))),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 12),
-                      child: GestureDetector(
-                          onTap: () =>
-                              {scaffoldKey.currentState?.openDrawer()},
-                          child: SvgPicture.asset("assets/images/menu.svg")),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    const Spacer(),
-                    Text(
-                      "Dashboard",
-                      style: FontConstant.styleSemiBold(
-                          fontSize: 18, color: AppColors.constColor),
-                    ),
-                    const Spacer(),
-                    GestureDetector(
-                      onTap: () => {Get.toNamed('/searchresult')},
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 5, top: 5),
-                        child: SvgPicture.asset("assets/images/searchd.svg"),
+          Column(
+            children: [
+              Stack(children: [
+                Container(
+                  padding: const EdgeInsets.only(top: 60),
+                  height: 150,
+                  decoration: const BoxDecoration(
+                      color: AppColors.primaryColor,
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(18),
+                          bottomRight: Radius.circular(18))),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 12),
+                        child: GestureDetector(
+                            onTap: () =>
+                                {scaffoldKey.currentState?.openDrawer()},
+                            child: SvgPicture.asset("assets/images/menu.svg")),
                       ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(left: 8, top: 5, right: 15),
-                      child: SvgPicture.asset("assets/images/notification.svg"),
-                    )
-                  ],
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      const Spacer(),
+                      Text(
+                        "Dashboard",
+                        style: FontConstant.styleSemiBold(
+                            fontSize: 18, color: AppColors.constColor),
+                      ),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () => {Get.toNamed('/searchresult')},
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 5, top: 5),
+                          child: SvgPicture.asset("assets/images/searchd.svg"),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(left: 8, top: 5, right: 15),
+                        child:
+                            SvgPicture.asset("assets/images/notification.svg"),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 110, left: 15, right: 15),
-                height: 70,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                    color: AppColors.constColor,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "25",
-                          style: FontConstant.styleRegular(
-                              fontSize: 22, color: AppColors.primaryColor),
-                        ),
-                        Text(
-                          "   Requests  ",
-                          style: FontConstant.styleRegular(
-                              fontSize: 14, color: AppColors.black),
-                        )
-                      ],
-                    ),
-                    Container(
-                      height: 50,
-                      width: 1,
-                      color: Colors.grey.shade200,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "10",
-                          style: FontConstant.styleRegular(
-                              fontSize: 22, color: AppColors.primaryColor),
-                        ),
-                        Text(
-                          "   Messages   ",
-                          style: FontConstant.styleRegular(
-                              fontSize: 14, color: AppColors.black),
-                        )
-                      ],
-                    ),
-                    Container(
-                      height: 50,
-                      width: 1,
-                      color: Colors.grey.shade200,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "50",
-                          style: FontConstant.styleRegular(
-                              fontSize: 22, color: AppColors.primaryColor),
-                        ),
-                        Text(
-                          "Notifications",
-                          style: FontConstant.styleRegular(
-                              fontSize: 14, color: AppColors.black),
-                        )
-                      ],
-                    ),
-                  ],
+                Container(
+                  margin: const EdgeInsets.only(top: 110, left: 15, right: 15),
+                  height: 70,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                      color: AppColors.constColor,
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "25",
+                            style: FontConstant.styleRegular(
+                                fontSize: 22, color: AppColors.primaryColor),
+                          ),
+                          Text(
+                            "   Requests  ",
+                            style: FontConstant.styleRegular(
+                                fontSize: 14, color: AppColors.black),
+                          )
+                        ],
+                      ),
+                      Container(
+                        height: 50,
+                        width: 1,
+                        color: Colors.grey.shade200,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "10",
+                            style: FontConstant.styleRegular(
+                                fontSize: 22, color: AppColors.primaryColor),
+                          ),
+                          Text(
+                            "   Messages   ",
+                            style: FontConstant.styleRegular(
+                                fontSize: 14, color: AppColors.black),
+                          )
+                        ],
+                      ),
+                      Container(
+                        height: 50,
+                        width: 1,
+                        color: Colors.grey.shade200,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "50",
+                            style: FontConstant.styleRegular(
+                                fontSize: 22, color: AppColors.primaryColor),
+                          ),
+                          Text(
+                            "Notifications",
+                            style: FontConstant.styleRegular(
+                                fontSize: 14, color: AppColors.black),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ]),
-            Expanded(
-              child: Container(
-                  child: const SingleChildScrollView(
-                child: HomeBody(),
-              )),
-            )
-          ],
-        ),
-      ]),
+              ]),
+              const Expanded(
+                child: SingleChildScrollView(
+                  child: HomeBody(),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
       drawer: Drawer(
         backgroundColor: AppColors.drawerBackground,
         child: ListView(
@@ -177,8 +179,6 @@ class _HomeState extends State<Home> {
                 children: [
                   const Spacer(),
                   Row(
-                    // mainAxisAlignment: MainAxisAlignment.center,
-
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Stack(children: [
@@ -239,17 +239,16 @@ class _HomeState extends State<Home> {
                       ),
                       const Spacer(),
                       GestureDetector(
-                          onTap: () =>
-                              {scaffoldKey.currentState?.closeDrawer()},
-                          child: Container(
-                              padding: const EdgeInsets.all(3),
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: AppColors.constColor),
-                                  shape: BoxShape.circle),
-                              child:
-                                  SvgPicture.asset("assets/images/cross.svg"))),
+                        onTap: () => {scaffoldKey.currentState?.closeDrawer()},
+                        child: Container(
+                          padding: const EdgeInsets.all(3),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: AppColors.constColor),
+                              shape: BoxShape.circle),
+                          child: SvgPicture.asset("assets/images/cross.svg"),
+                        ),
+                      ),
                     ],
                   ),
                   Padding(
@@ -262,10 +261,9 @@ class _HomeState extends State<Home> {
                               padding: const EdgeInsets.only(left: 5, right: 5),
                               height: 15,
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(
-                                    4.0), // Adjust the radius as needed
+                                borderRadius: BorderRadius.circular(4.0),
                                 child: LinearProgressIndicator(
-                                  value: 0.6,
+                                  value: 0.8,
                                   backgroundColor: Colors.grey.shade100,
                                   color: AppColors.primaryColor,
                                 ),
@@ -273,7 +271,8 @@ class _HomeState extends State<Home> {
                             ),
                             Container(
                                 height: 15,
-                                padding: const EdgeInsets.only(left: 15, right: 5),
+                                padding:
+                                    const EdgeInsets.only(left: 15, right: 5),
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   "Profile Status - 80%",
@@ -289,7 +288,8 @@ class _HomeState extends State<Home> {
                   ),
                 ],
               ),
-              decoration: const BoxDecoration(color: AppColors.drawerBackground),
+              decoration:
+                  const BoxDecoration(color: AppColors.drawerBackground),
             ),
             ListTile(
               leading: SvgPicture.asset(
@@ -468,23 +468,30 @@ class _HomeState extends State<Home> {
                 // Add navigation logic here
               },
             ),
-            Container(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              alignment: Alignment.center,
-              height: 80,
-              color: AppColors.drawerBackground,
+            GestureDetector(
+              onTap: (){
+                Get.offAndToNamed('/login');
+              },
               child: Container(
-                height: 40,
-                // width: 110,
-                decoration: const BoxDecoration(
-                    color: AppColors.constColor,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-
+                padding: const EdgeInsets.only(left: 15, right: 15),
                 alignment: Alignment.center,
-                child: Text(
-                  "Logout",
-                  style: FontConstant.styleSemiBold(
-                      fontSize: 15, color: AppColors.black),
+                height: 40,
+                color: AppColors.drawerBackground,
+                child: Container(
+                  height: 40,
+                  // width: 110,
+                  decoration: const BoxDecoration(
+                    color: AppColors.constColor,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Logout",
+                    style: FontConstant.styleSemiBold(
+                        fontSize: 15, color: AppColors.black),
+                  ),
                 ),
               ),
             )
