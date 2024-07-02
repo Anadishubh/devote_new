@@ -60,10 +60,10 @@ class ProfileHeader extends StatefulWidget {
   const ProfileHeader({super.key});
 
   @override
-  _ProfileHeaderState createState() => _ProfileHeaderState();
+  ProfileHeaderState createState() => ProfileHeaderState();
 }
 
-class _ProfileHeaderState extends State<ProfileHeader> {
+class ProfileHeaderState extends State<ProfileHeader> {
   bool isFavorite = false;
 
   void toggleFavorite() {

@@ -94,13 +94,13 @@ class _Profile2State extends State<Profile2> {
                         style: FontConstant.styleRegular(
                             fontSize: 16, color: Colors.black),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       CustomDropdown(
                         hintText: 'Select option',
                           items: ComplexionController.complexionColors(),
-                          onChanged: complexionController.selectedItem),
+                          onChanged: complexionController.selectedItem.call),
                     ],
                   ),
                   const SizedBox(height: 50),
@@ -145,7 +145,7 @@ class _Profile2State extends State<Profile2> {
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5),
             ),
-            contentPadding: EdgeInsets.symmetric(horizontal: 12),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 12),
           ),
         ),
       ],
@@ -179,7 +179,7 @@ class _Profile2State extends State<Profile2> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 12),
                 ),
               ),
             ),
@@ -200,7 +200,7 @@ class _Profile2State extends State<Profile2> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 12),
                 ),
               ),
             ),
@@ -221,7 +221,7 @@ class _Profile2State extends State<Profile2> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 12),
                 ),
               ),
             ),

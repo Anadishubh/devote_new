@@ -14,7 +14,7 @@ class ProfileComplete extends StatefulWidget {
 class _ProfileCompleteState extends State<ProfileComplete> {
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    // final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -52,13 +52,13 @@ class _ProfileCompleteState extends State<ProfileComplete> {
               Padding(
                 padding: const EdgeInsets.only(
                     top: 10, bottom: 10, left: 8, right: 8),
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   height: 8,
                   child: LinearProgressIndicator(
                     value: 0.4,
                     backgroundColor: Colors.grey.shade100,
-                    color: Color(0xff583689),
+                    color: const Color(0xff583689),
                   ),
                 ),
               ),
@@ -72,7 +72,7 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 20, bottom: 20),
+                margin: const EdgeInsets.only(top: 20, bottom: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,11 +81,11 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                       height: 60,
                       width: 60,
                       alignment: Alignment.center,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Colors.white, shape: BoxShape.circle),
                       child: Image.asset("assets/images/user.png"),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 4,
                     ),
                     Column(
@@ -116,7 +116,7 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 20, bottom: 20),
+                margin: const EdgeInsets.only(top: 20, bottom: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -125,11 +125,11 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                       height: 60,
                       alignment: Alignment.center,
                       width: 60,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Colors.white, shape: BoxShape.circle),
                       child: Image.asset("assets/images/education.png"),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 4,
                     ),
                     Column(
@@ -160,7 +160,7 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 20, bottom: 20),
+                margin: const EdgeInsets.only(top: 20, bottom: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -169,11 +169,11 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                       height: 60,
                       width: 60,
                       alignment: Alignment.center,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Colors.white, shape: BoxShape.circle),
                       child: Image.asset("assets/images/family.png"),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 4,
                     ),
                     Column(
@@ -204,7 +204,7 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 20, bottom: 20),
+                margin: const EdgeInsets.only(top: 20, bottom: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -213,11 +213,11 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                       alignment: Alignment.center,
                       height: 60,
                       width: 60,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Colors.white, shape: BoxShape.circle),
                       child: Image.asset("assets/images/money.png"),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 4,
                     ),
                     Column(

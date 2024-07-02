@@ -116,7 +116,7 @@ class _Profile1PageState extends State<Profile1Page> {
                     style: FontConstant.styleMedium(
                         fontSize: 18, color: Colors.black),
                   ),
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
                   SizedBox(
                     height: 100,
                     child: GridView.builder(

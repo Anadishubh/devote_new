@@ -36,19 +36,19 @@ class _UserProfileState extends State<UserProfile> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 220, left: 15, right: 15),
+              margin: const EdgeInsets.only(top: 220, left: 15, right: 15),
               height: 100,
               width: double.infinity,
               decoration: BoxDecoration(
                   color: AppColors.constColor,
                   border: Border.all(color: Colors.grey.shade200),
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
+                  borderRadius: const BorderRadius.all(Radius.circular(10))),
               child: Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(3.0),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      borderRadius: const BorderRadius.all(Radius.circular(5)),
                       child: Image.asset(
                         "assets/images/hero.jpg",
                         fit: BoxFit.cover,
@@ -57,7 +57,7 @@ class _UserProfileState extends State<UserProfile> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -81,8 +81,8 @@ class _UserProfileState extends State<UserProfile> {
                         padding: const EdgeInsets.only(top: 3, bottom: 3),
                         child: Container(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
+                          padding: const EdgeInsets.all(5),
+                          decoration: const BoxDecoration(
                             color: AppColors.primaryColor,
                             //   borderRadius:
                             //     BorderRadius.all(Radius.circular(10))
@@ -115,7 +115,7 @@ class _UserProfileState extends State<UserProfile> {
                           color: AppColors.constColor,
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.grey.shade200)),
-                      child: Icon(
+                      child: const Icon(
                         Icons.people,
                         color: AppColors.primaryColor,
                       ),
@@ -137,7 +137,7 @@ class _UserProfileState extends State<UserProfile> {
                           color: AppColors.constColor,
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.grey.shade200)),
-                      child: Icon(
+                      child: const Icon(
                         Icons.thumb_up,
                         color: AppColors.primaryColor,
                       ),
@@ -159,7 +159,7 @@ class _UserProfileState extends State<UserProfile> {
                           color: AppColors.constColor,
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.grey.shade200)),
-                      child: Icon(
+                      child: const Icon(
                         Icons.person,
                         color: AppColors.primaryColor,
                       ),
@@ -181,7 +181,7 @@ class _UserProfileState extends State<UserProfile> {
                           color: AppColors.constColor,
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.grey.shade200)),
-                      child: Icon(
+                      child: const Icon(
                         Icons.message,
                         color: AppColors.primaryColor,
                       ),
@@ -203,7 +203,7 @@ class _UserProfileState extends State<UserProfile> {
                     left: 15, right: 15, top: 20, bottom: 10),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.notifications,
                       color: AppColors.primaryColor,
                     ),
@@ -215,8 +215,8 @@ class _UserProfileState extends State<UserProfile> {
                             fontSize: 13, color: AppColors.black),
                       ),
                     ),
-                    Spacer(),
-                    Icon(
+                    const Spacer(),
+                    const Icon(
                       Icons.arrow_forward_ios,
                       color: AppColors.primaryColor,
                     )
@@ -228,7 +228,7 @@ class _UserProfileState extends State<UserProfile> {
                     left: 15, right: 15, top: 10, bottom: 10),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.subtitles,
                       color: AppColors.primaryColor,
                     ),
@@ -240,8 +240,8 @@ class _UserProfileState extends State<UserProfile> {
                             fontSize: 13, color: AppColors.black),
                       ),
                     ),
-                    Spacer(),
-                    Icon(
+                    const Spacer(),
+                    const Icon(
                       Icons.arrow_forward_ios,
                       color: AppColors.primaryColor,
                     )
@@ -253,7 +253,7 @@ class _UserProfileState extends State<UserProfile> {
                     left: 15, right: 15, top: 10, bottom: 10),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.settings,
                       color: AppColors.primaryColor,
                     ),
@@ -265,8 +265,8 @@ class _UserProfileState extends State<UserProfile> {
                             fontSize: 13, color: AppColors.black),
                       ),
                     ),
-                    Spacer(),
-                    Icon(
+                    const Spacer(),
+                    const Icon(
                       Icons.arrow_forward_ios,
                       color: AppColors.primaryColor,
                     )
@@ -278,7 +278,7 @@ class _UserProfileState extends State<UserProfile> {
                     left: 15, right: 15, top: 10, bottom: 10),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.terminal,
                       color: AppColors.primaryColor,
                     ),
@@ -290,8 +290,8 @@ class _UserProfileState extends State<UserProfile> {
                             fontSize: 13, color: AppColors.black),
                       ),
                     ),
-                    Spacer(),
-                    Icon(
+                    const Spacer(),
+                    const Icon(
                       Icons.arrow_forward_ios,
                       color: AppColors.primaryColor,
                     )
@@ -303,7 +303,7 @@ class _UserProfileState extends State<UserProfile> {
                     left: 15, right: 15, top: 10, bottom: 10),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.logout,
                       color: AppColors.primaryColor,
                     ),
@@ -315,8 +315,8 @@ class _UserProfileState extends State<UserProfile> {
                             fontSize: 13, color: AppColors.black),
                       ),
                     ),
-                    Spacer(),
-                    Icon(
+                    const Spacer(),
+                    const Icon(
                       Icons.arrow_forward_ios,
                       color: AppColors.primaryColor,
                     )

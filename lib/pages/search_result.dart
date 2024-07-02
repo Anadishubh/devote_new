@@ -18,7 +18,7 @@ class _SearchResultState extends State<SearchResult> {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    String selectedText = "";
+    // String selectedText = "";
     int selectedIndex = -1;
     final List<List> matches = [
       [
@@ -84,8 +84,8 @@ class _SearchResultState extends State<SearchResult> {
           "Your Search Result",
           style: FontConstant.styleSemiBold(fontSize: 18, color: Colors.white),
         ),
-        actions: [
-          const Padding(
+        actions: const [
+          Padding(
             padding: EdgeInsets.only(right: 12.0),
             child: Icon(
               Icons.filter_alt_outlined,
@@ -180,200 +180,197 @@ class _SearchResultState extends State<SearchResult> {
               ),
             ),
             Expanded(
-              child: Container(
-                // height: 291,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.start,
-                    // crossAxisAlignment: CrossAxisAlignment.center,
-                    children: matches.asMap().entries.map((entry) {
-                      int index = entry.key;
-                      String name = entry.value[0];
-                      String qualification = entry.value[1];
-                      String age = entry.value[2];
-                      String height = entry.value[3];
-                      String aadress = entry.value[4];
-                      String image = entry.value[5];
-                      //  String head = entry.value[1];
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  children: matches.asMap().entries.map((entry) {
+                    int index = entry.key;
+                    String name = entry.value[0];
+                    String qualification = entry.value[1];
+                    String age = entry.value[2];
+                    String height = entry.value[3];
+                    String aadress = entry.value[4];
+                    String image = entry.value[5];
+                    //  String head = entry.value[1];
 
-                      return InkWell(
-                        onTap: () {
-                       Get.toNamed('/profiledtls');
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.only(
-                              top: 5, bottom: 10, left: 10, right: 0),
-                          //  width: 320,
-                          decoration: BoxDecoration(
-                            color: selectedIndex == index
-                                ? Colors.grey.shade300
-                                : Colors.white,
-                            border: Border.all(color: Colors.grey.shade200),
-                            borderRadius: const BorderRadius.all(Radius.circular(10)),
-                          ),
-                          child: Column(
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      height: 144,
-                                      width: 111,
-                                      decoration:
-                                          const BoxDecoration(shape: BoxShape.circle),
-                                      child: ClipRRect(
-                                        child: Image.asset(
-                                          "$image",
-                                          // width: 210,
-                                          // height: 210,
-                                          filterQuality: FilterQuality.high,
-                                          fit: BoxFit.fill,
-                                        ),
+                    return InkWell(
+                      onTap: () {
+                     Get.toNamed('/profiledtls');
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(
+                            top: 5, bottom: 10, left: 10, right: 0),
+                        //  width: 320,
+                        decoration: BoxDecoration(
+                          color: selectedIndex == index
+                              ? Colors.grey.shade300
+                              : Colors.white,
+                          border: Border.all(color: Colors.grey.shade200),
+                          borderRadius: const BorderRadius.all(Radius.circular(10)),
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height: 144,
+                                    width: 111,
+                                    decoration:
+                                        const BoxDecoration(shape: BoxShape.circle),
+                                    child: ClipRRect(
+                                      child: Image.asset(
+                                        image,
+                                        // width: 210,
+                                        // height: 210,
+                                        filterQuality: FilterQuality.high,
+                                        fit: BoxFit.fill,
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Text(
-                                              name,
-                                              style: FontConstant.styleSemiBold(
-                                                  fontSize: 15,
-                                                  color:
-                                                      AppColors.primaryColor),
-                                            ),
-                                            const SizedBox(
-                                              width: 20,
-                                            ),
-                                            Container(
-                                              height: 10,
-                                              width: 10,
-                                              decoration: const BoxDecoration(
-                                                  color: Colors.green,
-                                                  shape: BoxShape.circle),
-                                            )
-                                          ],
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(top: 10),
-                                          child: Text(
-                                            qualification,
-                                            style: FontConstant.styleMedium(
-                                                fontSize: 12,
-                                                color: Colors.grey),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                            name,
+                                            style: FontConstant.styleSemiBold(
+                                                fontSize: 15,
+                                                color:
+                                                    AppColors.primaryColor),
                                           ),
-                                        ),
-                                        Text(
-                                          "$age Yrs, $height",
-                                          style: FontConstant.styleMedium(
-                                              fontSize: 12, color: Colors.grey),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(bottom: 10),
-                                          child: Text("Created By: Myself",
-                                              style: FontConstant.styleMedium(
-                                                  fontSize: 12,
-                                                  color: Colors.grey)),
-                                        ),
-                                        Text(
-                                          aadress,
+                                          const SizedBox(
+                                            width: 20,
+                                          ),
+                                          Container(
+                                            height: 10,
+                                            width: 10,
+                                            decoration: const BoxDecoration(
+                                                color: Colors.green,
+                                                shape: BoxShape.circle),
+                                          )
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          qualification,
                                           style: FontConstant.styleMedium(
                                               fontSize: 12,
-                                              color: AppColors.black),
-                                        )
-                                      ],
-                                    ),
+                                              color: Colors.grey),
+                                        ),
+                                      ),
+                                      Text(
+                                        "$age Yrs, $height",
+                                        style: FontConstant.styleMedium(
+                                            fontSize: 12, color: Colors.grey),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 10),
+                                        child: Text("Created By: Myself",
+                                            style: FontConstant.styleMedium(
+                                                fontSize: 12,
+                                                color: Colors.grey)),
+                                      ),
+                                      Text(
+                                        aadress,
+                                        style: FontConstant.styleMedium(
+                                            fontSize: 12,
+                                            color: AppColors.black),
+                                      )
+                                    ],
                                   ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(left: 10, right: 10),
+                              height: 1,
+                              width: double.infinity,
+                              color: Colors.grey.shade200,
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(
+                                  left: 10, right: 10, top: 10, bottom: 10),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      SvgPicture.asset(
+                                        "assets/images/like.svg",
+                                        height: 20,
+                                        width: 20,
+                                      ),
+                                      const SizedBox(
+                                        width: 3,
+                                      ),
+                                      Text(
+                                        "Shortlist",
+                                        style: FontConstant.styleMedium(
+                                            fontSize: 11,
+                                            color: AppColors.black),
+                                      )
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      SvgPicture.asset(
+                                        "assets/images/chat_d.svg",
+                                        height: 20,
+                                        width: 20,
+                                      ),
+                                      const SizedBox(
+                                        width: 3,
+                                      ),
+                                      Text(
+                                        "Chat Now",
+                                        style: FontConstant.styleMedium(
+                                            fontSize: 11,
+                                            color: AppColors.black),
+                                      )
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      SvgPicture.asset(
+                                        "assets/images/pink_search.svg",
+                                        height: 20,
+                                        width: 20,
+                                      ),
+                                      const SizedBox(
+                                        width: 3,
+                                      ),
+                                      Text(
+                                        "View Profile",
+                                        style: FontConstant.styleMedium(
+                                            fontSize: 11,
+                                            color: AppColors.black),
+                                      )
+                                    ],
+                                  )
                                 ],
                               ),
-                              Container(
-                                margin: const EdgeInsets.only(left: 10, right: 10),
-                                height: 1,
-                                width: double.infinity,
-                                color: Colors.grey.shade200,
-                              ),
-                              Container(
-                                padding: const EdgeInsets.only(
-                                    left: 10, right: 10, top: 10, bottom: 10),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        SvgPicture.asset(
-                                          "assets/images/like.svg",
-                                          height: 20,
-                                          width: 20,
-                                        ),
-                                        const SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text(
-                                          "Shortlist",
-                                          style: FontConstant.styleMedium(
-                                              fontSize: 11,
-                                              color: AppColors.black),
-                                        )
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        SvgPicture.asset(
-                                          "assets/images/chat_d.svg",
-                                          height: 20,
-                                          width: 20,
-                                        ),
-                                        const SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text(
-                                          "Chat Now",
-                                          style: FontConstant.styleMedium(
-                                              fontSize: 11,
-                                              color: AppColors.black),
-                                        )
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        SvgPicture.asset(
-                                          "assets/images/pink_search.svg",
-                                          height: 20,
-                                          width: 20,
-                                        ),
-                                        const SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text(
-                                          "View Profile",
-                                          style: FontConstant.styleMedium(
-                                              fontSize: 11,
-                                              color: AppColors.black),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
+                            )
+                          ],
                         ),
-                      );
-                    }).toList(),
-                  ),
+                      ),
+                    );
+                  }).toList(),
                 ),
               ),
             ),

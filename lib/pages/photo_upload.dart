@@ -14,7 +14,7 @@ class PhotoUpload extends StatefulWidget {
 class _PhotoUploadState extends State<PhotoUpload> {
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    // final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -47,7 +47,7 @@ class _PhotoUploadState extends State<PhotoUpload> {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(color: Colors.grey.shade200),
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                    borderRadius: const BorderRadius.all(Radius.circular(15))),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -55,12 +55,12 @@ class _PhotoUploadState extends State<PhotoUpload> {
                       padding: const EdgeInsets.only(bottom: 15),
                       child: Image.asset("assets/images/upload.png"),
                     ),
-                    Text("Upload Square size photograph in"),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 25),
+                    const Text("Upload Square size photograph in"),
+                    const Padding(
+                      padding: EdgeInsets.only(bottom: 25),
                       child: Text("jpg or png format."),
                     ),
-                    Container(
+                    SizedBox(
                       width: 200,
                       child: CustomButton(
                           text: "Upload Photos",
@@ -71,7 +71,7 @@ class _PhotoUploadState extends State<PhotoUpload> {
                           textStyle: FontConstant.styleSemiBold(
                               fontSize: 15, color: AppColors.constColor)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(

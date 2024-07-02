@@ -134,7 +134,7 @@ class _FamilyPageState extends State<FamilyPage> {
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5),
             ),
-            contentPadding: EdgeInsets.symmetric(horizontal: 12)
+            contentPadding: const EdgeInsets.symmetric(horizontal: 12)
           ),
         ),
       ],

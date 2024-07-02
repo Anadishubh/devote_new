@@ -13,7 +13,7 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
 
-  CustomTextField({
+  const CustomTextField({
     required this.controller,
     this.labelText = "",
     this.hintText = '',
@@ -39,16 +39,16 @@ class CustomTextField extends StatelessWidget {
         labelText: labelText,
         hintText: hintText,
         counterText: "",
-        contentPadding: EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
-        enabledBorder: OutlineInputBorder(
+        contentPadding: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
+        enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(
             color: AppColors.primaryColor,
           ),
         ),
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
       ),

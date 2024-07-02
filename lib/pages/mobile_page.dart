@@ -79,7 +79,7 @@ class _MobilePageState extends State<MobilePage> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                         ),
-                        contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+                        contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
                       ),
                     ),
                   ),
