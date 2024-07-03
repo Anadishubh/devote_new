@@ -420,7 +420,9 @@ class _CompatiblityState extends State<Compatiblity> {
                   'You match 5/8 of \nher preferences',
                   textAlign: TextAlign.center,
                   style: FontConstant.styleMedium(
-                      fontSize: 14, color: const Color(0xff583789)),
+                    fontSize: 14,
+                    color: const Color(0xff583789),
+                  ),
                 ),
               ),
               const Padding(

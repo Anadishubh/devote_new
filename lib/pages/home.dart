@@ -33,6 +33,7 @@ class _HomeState extends State<Home> {
               image: DecorationImage(
                 image: AssetImage('assets/images/bg3.png'),
                 fit: BoxFit.fill,
+                opacity: 0.5
               ),
             ),
           ),

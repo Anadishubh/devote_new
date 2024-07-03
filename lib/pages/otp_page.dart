@@ -58,13 +58,12 @@ class _OtpState extends State<Otp> {
               ),
             ),
             Positioned(
-              top: 100,
-              left: screenWidth * 0.36,
-              right: screenWidth * 0.36,
-              child: Image.asset('assets/images/otp.png'),
+              top: screenHeight * 0.15,
+              left: screenWidth * 0.4,
+              child: Image.asset('assets/images/otp.png', scale: 1.5),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 280),
+              padding: EdgeInsets.only(top: screenHeight * 0.3),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -85,9 +84,7 @@ class _OtpState extends State<Otp> {
                       children: List.generate(4, (index) => _buildOtpTextField(index)),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -98,9 +95,7 @@ class _OtpState extends State<Otp> {
                           color: Colors.grey.shade600,
                         ),
                       ),
-                      const SizedBox(
-                        width: 10,
-                      ),
+                      const SizedBox(width: 10),
                       InkWell(
                         onTap: (){},
                         child: Text(
@@ -113,9 +108,7 @@ class _OtpState extends State<Otp> {
                       )
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                   Text(
                     'Resend in 00:15',
                     style: FontConstant.styleRegular(
@@ -150,7 +143,6 @@ class _OtpState extends State<Otp> {
   Widget _buildOtpTextField(int index) {
     return SizedBox(
       width: 60,
-      height: 510,
       child: TextFormField(
         controller: _otpControllers[index],
         textAlign: TextAlign.center,
@@ -165,7 +157,7 @@ class _OtpState extends State<Otp> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
           ),
-          contentPadding: EdgeInsets.symmetric(vertical: 1)
+          contentPadding: const EdgeInsets.symmetric(vertical: 1),
         ),
         onChanged: (value) {
           if (value.length == 1 && index < 3) {

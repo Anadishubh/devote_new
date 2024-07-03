@@ -1,9 +1,9 @@
 import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:devotee_matrimony/constants/button_constant.dart';
-import 'package:devotee_matrimony/constants/profile_constant.dart';
-import 'package:flutter/material.dart';
 import 'package:devotee_matrimony/constants/color_constant.dart';
 import 'package:devotee_matrimony/constants/font_constant.dart';
+import 'package:devotee_matrimony/constants/profile_constant.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Profile2 extends StatefulWidget {
@@ -99,8 +99,11 @@ class _Profile2State extends State<Profile2> {
                       ),
                       CustomDropdown(
                         hintText: 'Select option',
-                          items: ComplexionController.complexionColors(),
-                          onChanged: complexionController.selectedItem.call),
+                        items: ComplexionController.complexionColors(),
+                        onChanged: (value) {
+                          complexionController.selectedItem(value);
+                        },
+                      ),
                     ],
                   ),
                   const SizedBox(height: 50),
@@ -136,7 +139,6 @@ class _Profile2State extends State<Profile2> {
         const SizedBox(height: 8),
         TextFormField(
           decoration: InputDecoration(
-
             filled: true,
             fillColor: Colors.white,
             focusedBorder: OutlineInputBorder(

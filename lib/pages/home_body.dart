@@ -91,104 +91,107 @@ class HomeBody extends StatelessWidget {
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Row(
-            // mainAxisAlignment: MainAxisAlignment.start,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: matches.asMap().entries.map((entry) {
-              int index = entry.key;
-              String name = entry.value[0];
-              String qualification = entry.value[1];
-              String age = entry.value[2];
-              String height = entry.value[3];
-              String aadress = entry.value[4];
-              String image = entry.value[5];
-              //  String head = entry.value[1];
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.start,
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              children: matches.asMap().entries.map((entry) {
+                int index = entry.key;
+                String name = entry.value[0];
+                String qualification = entry.value[1];
+                String age = entry.value[2];
+                String height = entry.value[3];
+                String aadress = entry.value[4];
+                String image = entry.value[5];
+                //  String head = entry.value[1];
 
-              return GestureDetector(
-                onTap: () {
-                  // setState(() {
-                  //   //  selectedText = head;
-                  //   selectedIndex = index;
-                  // });
-                },
-                child: Container(
-                  margin: const EdgeInsets.only(
-                      top: 5, bottom: 15, left: 10,),
-                  width: 220,
-                  decoration: BoxDecoration(
-                    color: selectedIndex == index
-                        ? Colors.grey.shade300
-                        : Colors.white,
-                    border: Border.all(color: Colors.grey.shade200),
-                    borderRadius: const BorderRadius.all(Radius.circular(10)),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10)),
-                        child: Stack(children: [
-                          Image.asset(
-                            image,
-                            width: 260,
-                            height: 200,
-                            filterQuality: FilterQuality.high,
-                            fit: BoxFit.fill,
-                          ),
-                          Container(
-                            alignment: Alignment.center,
-                            height: 50,
-                            width: 50,
-                            margin: const EdgeInsets.only(top: 180, left: 150),
-                            decoration: const BoxDecoration(
-                                shape: BoxShape.circle, color: Colors.white,),
-                            child: SvgPicture.asset(
-                              "assets/images/like.svg",
-                              height: 30,
-                              width: 30,
+                return GestureDetector(
+                  onTap: () {
+                    // setState(() {
+                    //   //  selectedText = head;
+                    //   selectedIndex = index;
+                    // });
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(
+                        top: 5, bottom: 15,left: 5),
+                    width: 200,
+                    decoration: BoxDecoration(
+                      color: selectedIndex == index
+                          ? Colors.grey.shade300
+                          : Colors.white,
+                      border: Border.all(color: Colors.grey.shade200),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10)),
+                          child: Stack(children: [
+                            Image.asset(
+                              image,
+                              width: 200,
+                              height: 200,
+                              filterQuality: FilterQuality.high,
+                              fit: BoxFit.fill,
                             ),
-                          ),
-                        ],),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 8, right: 8, bottom: 8),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              name,
-                              style: FontConstant.styleSemiBold(
-                                  fontSize: 15,
-                                  color: AppColors.primaryColor),
+                            Container(
+                              alignment: Alignment.center,
+                              height: 50,
+                              width: 50,
+                              margin: const EdgeInsets.only(top: 180, left: 150),
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle, color: Colors.white,),
+                              child: SvgPicture.asset(
+                                "assets/images/like.svg",
+                                height: 30,
+                                width: 30,
+                              ),
                             ),
-                            Text(
-                              qualification,
-                              style: FontConstant.styleMedium(
-                                  fontSize: 12, color: Colors.grey.shade800),
-                            ),
-                            Text(
-                              "$age Yrs, $height",
-                              style: FontConstant.styleMedium(
-                                  fontSize: 12, color: Colors.grey.shade800),
-                            ),
-                            const SizedBox(height: 10,),
-                            Text(
-                              aadress,
-                              style: FontConstant.styleMedium(
-                                  fontSize: 12, color: AppColors.black),
-                            )
-                          ],
+                          ],),
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 8, right: 8, bottom: 8),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                name,
+                                style: FontConstant.styleSemiBold(
+                                    fontSize: 15,
+                                    color: AppColors.primaryColor),
+                              ),
+                              Text(
+                                qualification,
+                                style: FontConstant.styleMedium(
+                                    fontSize: 12, color: Colors.grey.shade800),
+                              ),
+                              Text(
+                                "$age Yrs, $height",
+                                style: FontConstant.styleMedium(
+                                    fontSize: 12, color: Colors.grey.shade800),
+                              ),
+                              const SizedBox(height: 10,),
+                              Text(
+                                aadress,
+                                style: FontConstant.styleMedium(
+                                    fontSize: 12, color: AppColors.black),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              );
-            }).toList(),
+                );
+              }).toList(),
+            ),
           ),
         ),
         Container(
@@ -202,79 +205,81 @@ class HomeBody extends StatelessWidget {
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Row(
-            // mainAxisAlignment: MainAxisAlignment.start,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: discover.asMap().entries.map((entry) {
-              int index = entry.key;
-              String image = entry.value[0];
-              String name = entry.value[1];
-              String num = entry.value[2];
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.start,
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              children: discover.asMap().entries.map((entry) {
+                int index = entry.key;
+                String image = entry.value[0];
+                String name = entry.value[1];
+                String num = entry.value[2];
 
-              //  String head = entry.value[1];
+                //  String head = entry.value[1];
 
-              return GestureDetector(
-                onTap: () {
-                  // setState(() {
-                  //   //  selectedText = head;
-                  //   selectedIndex = index;
-                  // });
-                },
-                child: Container(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  margin: const EdgeInsets.only(
-                      top: 5, bottom: 10, left: 10,),
-                  //   width: 210,
-                  decoration: BoxDecoration(
-                    color: selectedIndex == index
-                        ? Colors.grey.shade300
-                        : Colors.white,
-                    border: Border.all(color: Colors.grey.shade200),
-                    borderRadius: const BorderRadius.all(Radius.circular(10)),
-                  ),
-                  child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10)),
-                        child: Image.asset(
-                          image,
-                          width: 70,
-                          height: 70,
-                          fit: BoxFit.cover,
+                return GestureDetector(
+                  onTap: () {
+                    // setState(() {
+                    //   //  selectedText = head;
+                    //   selectedIndex = index;
+                    // });
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    margin: const EdgeInsets.only(
+                        top: 5, bottom: 10, left: 5,),
+                    //   width: 210,
+                    decoration: BoxDecoration(
+                      color: selectedIndex == index
+                          ? Colors.grey.shade300
+                          : Colors.white,
+                      border: Border.all(color: Colors.grey.shade200),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10)),
+                          child: Image.asset(
+                            image,
+                            width: 70,
+                            height: 70,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 5.0,right: 5),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              name,
-                              style: FontConstant.styleSemiBold(
-                                  fontSize: 15, color: AppColors.black),
-                            ),
-                            Text(
-                              "$num Matches",
-                              style: FontConstant.styleSemiBold(
-                                  fontSize: 12, color: Colors.grey),
-                            ),
-                          ],
+                        Padding(
+                          padding: const EdgeInsets.only(left: 5.0,right: 5),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                name,
+                                style: FontConstant.styleSemiBold(
+                                    fontSize: 15, color: AppColors.black),
+                              ),
+                              Text(
+                                "$num Matches",
+                                style: FontConstant.styleSemiBold(
+                                    fontSize: 12, color: Colors.grey),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              );
-            }).toList(),
+                );
+              }).toList(),
+            ),
           ),
         ),
-        Container(
-          //  margin: EdgeInsets.only(top: 10),
-          padding: const EdgeInsets.only(left: 15, right: 15),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Row(
             children: [
               Text(
@@ -315,7 +320,7 @@ class HomeBody extends StatelessWidget {
                 },
                 child: Container(
                   margin: const EdgeInsets.only(
-                      top: 5, bottom: 10, left: 10),
+                      top: 5, bottom: 10, left: 5),
                   //  width: 320,
                   decoration: BoxDecoration(
                     color: selectedIndex == index
@@ -458,9 +463,8 @@ class HomeBody extends StatelessWidget {
             }).toList(),
           ),
         ),
-        Container(
-          //  margin: EdgeInsets.only(top: 10),
-          padding: const EdgeInsets.only(left: 15, right: 15),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Row(
             children: [
               Text(
@@ -501,7 +505,7 @@ class HomeBody extends StatelessWidget {
                 },
                 child: Container(
                   margin: const EdgeInsets.only(
-                      top: 5, bottom: 10, left: 10),
+                      top: 5, bottom: 10, left: 5),
                   //  width: 320,
                   decoration: BoxDecoration(
                     color: selectedIndex == index

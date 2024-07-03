@@ -42,13 +42,12 @@ class _MobilePageState extends State<MobilePage> {
               ),
             ),
             Positioned(
-              top: 100,
+              top: screenHeight * 0.15,
               left: screenWidth * 0.4,
-              right: screenWidth * 0.4,
-              child: Image.asset('assets/images/lock.png'),
+              child: Image.asset('assets/images/lock.png', scale: 1.5),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 280),
+              padding: EdgeInsets.only(top: screenHeight * 0.3),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -61,9 +60,7 @@ class _MobilePageState extends State<MobilePage> {
                   ),
                   const SizedBox(height: 20),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 30.0,
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
                     child: TextFormField(
                       decoration: InputDecoration(
                         fillColor: Colors.white,
@@ -71,19 +68,19 @@ class _MobilePageState extends State<MobilePage> {
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                           borderSide:
-                              const BorderSide(color: AppColors.primaryColor),
+                          const BorderSide(color: AppColors.primaryColor),
                         ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                         ),
                         contentPadding:
-                            const EdgeInsets.symmetric(horizontal: 12),
+                        const EdgeInsets.symmetric(horizontal: 12),
                       ),
                     ),
                   ),
                   const SizedBox(height: 20),
                   Padding(
-                    padding: const EdgeInsets.only(left: 26, right: 26),
+                    padding: const EdgeInsets.symmetric(horizontal: 26.0),
                     child: CustomButton(
                       text: 'SEND OTP',
                       onPressed: () {
@@ -112,10 +109,10 @@ class _MobilePageState extends State<MobilePage> {
             ),
             TextButton(
               onPressed: () {
-                Get.offAndToNamed('/login');
+                Get.offAndToNamed('/signup');
               },
               child: Text(
-                'SignUp',
+                'Sign Up',
                 style: FontConstant.styleRegular(
                     fontSize: 14, color: AppColors.primaryColor),
               ),
