@@ -26,6 +26,12 @@ class _ProfileCompleteState extends State<ProfileComplete> {
           style: FontConstant.styleSemiBold(
               fontSize: 18, color: AppColors.constColor),
         ),
+        leading: IconButton(
+          icon: Image.asset('assets/images/icons/arrow.png'),
+          onPressed: () {
+            Get.offAndToNamed('/photo');
+          },
+        ),
       ),
       body: Stack(children: [
         Container(
@@ -72,21 +78,23 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(top: 20, bottom: 20),
+                padding: const EdgeInsets.only(top: 24, left: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      height: 60,
-                      width: 60,
-                      alignment: Alignment.center,
-                      decoration: const BoxDecoration(
-                          color: Colors.white, shape: BoxShape.circle),
-                      child: Image.asset("assets/images/user.png"),
-                    ),
                     const SizedBox(
-                      width: 4,
+                        height: 60,
+                        width: 60,
+                        child: CircleAvatar(
+                          backgroundColor: Colors.white,
+                          child: Image(
+                            height: 40,
+                            width: 40,
+                            image: AssetImage("assets/images/user.png"),
+                          ),
+                        )),
+                    const SizedBox(
+                      width: 10,
                     ),
                     Column(
                       //  mainAxisAlignment: MainAxisAlignment.start,
@@ -95,11 +103,11 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                         Text(
                           "ADD PERSONAL DETAILS",
                           style: FontConstant.styleSemiBold(
-                              fontSize: 15, color: AppColors.black),
+                              fontSize: 16, color: AppColors.black),
                         ),
                         Text(
                           "Let's propects know what you look likes",
-                          style: FontConstant.styleSemiBold(
+                          style: FontConstant.styleRegular(
                               fontSize: 13, color: AppColors.black),
                         ),
                         Padding(
@@ -116,34 +124,36 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(top: 20, bottom: 20),
+                padding: const EdgeInsets.only(top: 40, left: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
+                    const SizedBox(
                       height: 60,
-                      alignment: Alignment.center,
                       width: 60,
-                      decoration: const BoxDecoration(
-                          color: Colors.white, shape: BoxShape.circle),
-                      child: Image.asset("assets/images/education.png"),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Image(
+                          width: 40,
+                          height: 40,
+                          image: AssetImage("assets/images/education.png"),
+                        ),
+                      ),
                     ),
                     const SizedBox(
-                      width: 4,
+                      width: 10,
                     ),
                     Column(
-                      //  mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "ADD Education & OCCUPATION\nDETAILS",
                           style: FontConstant.styleSemiBold(
-                              fontSize: 15, color: AppColors.black),
+                              fontSize: 16, color: AppColors.black),
                         ),
                         Text(
                           "Let's propects know what you look likes",
-                          style: FontConstant.styleSemiBold(
+                          style: FontConstant.styleRegular(
                               fontSize: 13, color: AppColors.black),
                         ),
                         Padding(
@@ -160,21 +170,23 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(top: 20, bottom: 20),
+                margin: const EdgeInsets.only(top: 40, left: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
+                    SizedBox(
                       height: 60,
                       width: 60,
-                      alignment: Alignment.center,
-                      decoration: const BoxDecoration(
-                          color: Colors.white, shape: BoxShape.circle),
-                      child: Image.asset("assets/images/family.png"),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Image(
+                            height: 40,
+                            width: 40,
+                            image: AssetImage("assets/images/family.png")),
+                      ),
                     ),
                     const SizedBox(
-                      width: 4,
+                      width: 10,
                     ),
                     Column(
                       //  mainAxisAlignment: MainAxisAlignment.start,
@@ -183,11 +195,11 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                         Text(
                           "ADD FAMILY DETAILS",
                           style: FontConstant.styleSemiBold(
-                              fontSize: 15, color: AppColors.black),
+                              fontSize: 16, color: AppColors.black),
                         ),
                         Text(
                           "Let's propects know what you look likes",
-                          style: FontConstant.styleSemiBold(
+                          style: FontConstant.styleRegular(
                               fontSize: 13, color: AppColors.black),
                         ),
                         Padding(
@@ -204,21 +216,24 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(top: 20, bottom: 20),
+                margin: const EdgeInsets.only(top: 40, left: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      alignment: Alignment.center,
+                    const SizedBox(
                       height: 60,
                       width: 60,
-                      decoration: const BoxDecoration(
-                          color: Colors.white, shape: BoxShape.circle),
-                      child: Image.asset("assets/images/money.png"),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: Image(
+                          height: 40,
+                          width: 40,
+                          image: AssetImage('assets/images/money.png'),
+                        ),
+                      ),
                     ),
                     const SizedBox(
-                      width: 4,
+                      width: 10,
                     ),
                     Column(
                       //  mainAxisAlignment: MainAxisAlignment.start,
@@ -227,11 +242,11 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                         Text(
                           "ADD ANNUAL INCOME",
                           style: FontConstant.styleSemiBold(
-                              fontSize: 15, color: AppColors.black),
+                              fontSize: 16, color: AppColors.black),
                         ),
                         Text(
                           "Let's propects know what you look likes",
-                          style: FontConstant.styleSemiBold(
+                          style: FontConstant.styleRegular(
                               fontSize: 13, color: AppColors.black),
                         ),
                         Padding(
@@ -248,11 +263,11 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 40,left: 26,right: 26),
                 child: CustomButton(
                     text: "GO TO DASHBOARD",
                     onPressed: () {
-                      Get.toNamed('/dashboard');
+                      Get.offAndToNamed('/dashboard');
                     },
                     color: AppColors.primaryColor,
                     textStyle: FontConstant.styleSemiBold(

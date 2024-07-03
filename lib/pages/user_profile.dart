@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../constants/color_constant.dart';
 import '../constants/font_constant.dart';
 
@@ -301,26 +302,31 @@ class _UserProfileState extends State<UserProfile> {
               Padding(
                 padding: const EdgeInsets.only(
                     left: 15, right: 15, top: 10, bottom: 10),
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.logout,
-                      color: AppColors.primaryColor,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8),
-                      child: Text(
-                        "Logout",
-                        style: FontConstant.styleSemiBold(
-                            fontSize: 13, color: AppColors.black),
+                child: InkWell(
+                  onTap: (){
+                    Get.offAndToNamed('/login');
+                  },
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.logout,
+                        color: AppColors.primaryColor,
                       ),
-                    ),
-                    const Spacer(),
-                    const Icon(
-                      Icons.arrow_forward_ios,
-                      color: AppColors.primaryColor,
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8),
+                        child: Text(
+                          "Logout",
+                          style: FontConstant.styleSemiBold(
+                              fontSize: 13, color: AppColors.black),
+                        ),
+                      ),
+                      const Spacer(),
+                      const Icon(
+                        Icons.arrow_forward_ios,
+                        color: AppColors.primaryColor,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],

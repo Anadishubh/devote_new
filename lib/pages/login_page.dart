@@ -97,11 +97,11 @@ class _LoginPageState extends State<LoginPage> {
                 height: 15,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 18.0, right: 18),
+                padding: const EdgeInsets.only(left: 26, right: 26),
                 child: CustomButton(
                   text: 'LOGIN WITH OTP',
                   onPressed: () {
-                    Get.toNamed('/mobile');
+                    Get.offAndToNamed('/mobile');
                   },
                   color: AppColors.constColor,
                   textStyle: FontConstant.styleRegular(
@@ -112,11 +112,11 @@ class _LoginPageState extends State<LoginPage> {
                 height: 15,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 18.0, right: 18),
+                padding: const EdgeInsets.only(left: 26.0, right: 26),
                 child: CustomButton(
                   text: 'LOGIN WITH EMAIL ID',
                   onPressed: () {
-                    Get.toNamed('/mobile');
+                    Get.offAndToNamed('/mobile');
                   },
                   color: AppColors.constColor,
                   textStyle: FontConstant.styleRegular(
@@ -127,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 18),
+                padding: const EdgeInsets.only(left: 26, right: 26),
                 child: Text(
                   textAlign: TextAlign.center,
                   'If you are outside of India, You can use email id for login',
@@ -136,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(
-                height: 40,
+                height: 60,
               ),
             ],
           ),

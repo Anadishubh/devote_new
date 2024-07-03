@@ -32,7 +32,7 @@ class _Profile2State extends State<Profile2> {
         leading: IconButton(
           icon: Image.asset('assets/images/icons/arrow.png'),
           onPressed: () {
-            Navigator.pop(context);
+            Get.offAndToNamed('/profile1');
           },
         ),
       ),
@@ -109,7 +109,7 @@ class _Profile2State extends State<Profile2> {
                     child: CustomButton(
                       text: 'CONTINUE',
                       onPressed: () {
-                        Get.toNamed('/education');
+                        Get.offAndToNamed('/education');
                       },
                       color: AppColors.primaryColor,
                       textStyle: FontConstant.styleRegular(
@@ -136,6 +136,7 @@ class _Profile2State extends State<Profile2> {
         const SizedBox(height: 8),
         TextFormField(
           decoration: InputDecoration(
+
             filled: true,
             fillColor: Colors.white,
             focusedBorder: OutlineInputBorder(

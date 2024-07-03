@@ -26,6 +26,12 @@ class _PhotoUploadState extends State<PhotoUpload> {
           style: FontConstant.styleSemiBold(
               fontSize: 18, color: AppColors.constColor),
         ),
+        leading: IconButton(
+          icon: Image.asset('assets/images/icons/arrow.png'),
+          onPressed: () {
+            Get.offAndToNamed('/occupation');
+          },
+        ),
       ),
       body: Stack(
         children: [
@@ -63,9 +69,9 @@ class _PhotoUploadState extends State<PhotoUpload> {
                     SizedBox(
                       width: 200,
                       child: CustomButton(
-                          text: "Upload Photos",
+                          text: "Upload Photo",
                           onPressed: () {
-                            Get.toNamed('/pc');
+                            Get.offAndToNamed('/pc');
                           },
                           color: AppColors.primaryColor,
                           textStyle: FontConstant.styleSemiBold(
@@ -74,10 +80,15 @@ class _PhotoUploadState extends State<PhotoUpload> {
                     const SizedBox(
                       height: 10,
                     ),
-                    Text(
-                      "SKIP",
-                      style: FontConstant.styleSemiBold(
-                          fontSize: 15, color: AppColors.black),
+                    InkWell(
+                      onTap: () {
+                        Get.offAndToNamed('/dashboard');
+                      },
+                      child: Text(
+                        "SKIP",
+                        style: FontConstant.styleSemiBold(
+                            fontSize: 15, color: AppColors.black),
+                      ),
                     ),
                   ],
                 ),

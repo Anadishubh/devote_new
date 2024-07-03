@@ -21,7 +21,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     // final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       key: scaffoldKey,
@@ -464,7 +463,7 @@ class _HomeState extends State<Home> {
                     fontSize: 15, color: AppColors.constColor),
               ),
               onTap: () {
-                Navigator.pop(context);
+                Get.back();
                 // Add navigation logic here
               },
             ),

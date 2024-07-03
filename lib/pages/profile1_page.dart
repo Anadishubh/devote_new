@@ -24,16 +24,11 @@ class _Profile1PageState extends State<Profile1Page> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: AppColors.primaryColor,
         title: Text(
-          "Let's Build Your Profile",
+          "Choose",
           style: FontConstant.styleMedium(fontSize: 20, color: Colors.white),
-        ),
-        leading: IconButton(
-          icon: Image.asset('assets/images/icons/arrow.png'),
-          onPressed: () {
-            Navigator.pop(context);
-          },
         ),
       ),
       body: SingleChildScrollView(
@@ -41,7 +36,9 @@ class _Profile1PageState extends State<Profile1Page> {
           children: [
             Padding(
               padding: EdgeInsets.only(left: screenWidth * 0.2),
-              child: const Image(image: AssetImage('assets/images/bg3.png')),
+              child: const Image(
+                image: AssetImage('assets/images/bg3.png'),
+              ),
             ),
             Container(
               height: screenHeight,
@@ -116,9 +113,11 @@ class _Profile1PageState extends State<Profile1Page> {
                     style: FontConstant.styleMedium(
                         fontSize: 18, color: Colors.black),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   SizedBox(
-                    height: 100,
+                    height: 95,
                     child: GridView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       scrollDirection: Axis.vertical,
@@ -173,15 +172,16 @@ class _Profile1PageState extends State<Profile1Page> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10,right: 10,top: 25),
+                    padding:
+                        const EdgeInsets.only(left: 10, right: 10, top: 40),
                     child: CustomButton(
                       text: 'CONTINUE',
                       onPressed: () {
-                        Get.toNamed('/profile2');
+                        Get.offAndToNamed('/profile2');
                       },
                       color: AppColors.primaryColor,
-                      textStyle:
-                      FontConstant.styleRegular(fontSize: 18, color: Colors.white),
+                      textStyle: FontConstant.styleRegular(
+                          fontSize: 18, color: Colors.white),
                     ),
                   ),
                 ],

@@ -33,7 +33,7 @@ class _EducationPageState extends State<EducationPage> {
         leading: IconButton(
           icon: Image.asset('assets/images/icons/arrow.png'),
           onPressed: () {
-            Navigator.pop(context);
+            Get.offAndToNamed('/profile2');
           },
         ),
       ),
@@ -84,7 +84,7 @@ class _EducationPageState extends State<EducationPage> {
                     child: CustomButton(
                       text: 'CONTINUE',
                       onPressed: () {
-                        Get.toNamed('/family');
+                        Get.offAndToNamed('/family');
                       },
                       color: AppColors.primaryColor,
                       textStyle: FontConstant.styleRegular(

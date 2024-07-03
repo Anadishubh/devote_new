@@ -30,9 +30,13 @@ class _DashboardState extends State<Dashboard> {
         physics: const NeverScrollableScrollPhysics(),
         controller: controller,
         children: const [
-          Center(child: Text('chat')),
+          Center(
+            child: Text('chat'),
+          ),
           UserProfile(),
-          Center(child: Text('liked')),
+          Center(
+            child: Text('liked'),
+          ),
           SearchPage(),
           Home(),
         ],
@@ -50,7 +54,8 @@ class _DashboardState extends State<Dashboard> {
             icon: const Icon(Icons.chat_outlined),
             title: Text(
               'Chat',
-              style: FontConstant.styleSemiBold(fontSize: 12, color: Colors.white),
+              style:
+                  FontConstant.styleSemiBold(fontSize: 12, color: Colors.white),
             ),
             backgroundColor: Colors.white,
           ),
@@ -58,7 +63,8 @@ class _DashboardState extends State<Dashboard> {
             icon: const Icon(Icons.person_outline),
             title: Text(
               'Profile',
-              style: FontConstant.styleSemiBold(fontSize: 12, color: Colors.white),
+              style:
+                  FontConstant.styleSemiBold(fontSize: 12, color: Colors.white),
             ),
             backgroundColor: Colors.white,
           ),
@@ -66,7 +72,8 @@ class _DashboardState extends State<Dashboard> {
             icon: const Icon(Icons.favorite_border),
             title: Text(
               'Liked',
-              style: FontConstant.styleSemiBold(fontSize: 12, color: Colors.white),
+              style:
+                  FontConstant.styleSemiBold(fontSize: 12, color: Colors.white),
             ),
             backgroundColor: Colors.white,
           ),
@@ -74,7 +81,8 @@ class _DashboardState extends State<Dashboard> {
             icon: const Icon(Icons.search),
             title: Text(
               'Search',
-              style: FontConstant.styleSemiBold(fontSize: 12, color: Colors.white),
+              style:
+                  FontConstant.styleSemiBold(fontSize: 12, color: Colors.white),
             ),
             backgroundColor: Colors.white,
           ),

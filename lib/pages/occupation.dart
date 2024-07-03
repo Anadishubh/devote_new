@@ -36,7 +36,7 @@ class _OccupationState extends State<Occupation> {
         leading: IconButton(
           icon: Image.asset('assets/images/icons/arrow.png'),
           onPressed: () {
-            Navigator.pop(context);
+            Get.offAndToNamed('/education');
           },
         ),
       ),
@@ -136,7 +136,7 @@ class _OccupationState extends State<Occupation> {
                   child: CustomButton(
                     text: "FINISH",
                     onPressed: () {
-                      Get.toNamed('/photo');
+                      Get.offAndToNamed('/photo');
                     },
                     color: AppColors.primaryColor,
                     textStyle: FontConstant.styleRegular(

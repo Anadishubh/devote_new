@@ -40,7 +40,7 @@ class _OtpState extends State<Otp> {
         leading: IconButton(
           icon: Image.asset('assets/images/icons/arrow.png'),
           onPressed: () {
-            Navigator.pop(context);
+            Get.offAndToNamed('/mobile');
           },
         ),
       ),
@@ -58,13 +58,13 @@ class _OtpState extends State<Otp> {
               ),
             ),
             Positioned(
-              top: 60,
-              left: screenWidth * 0.25,
-              right: screenWidth * 0.25,
+              top: 100,
+              left: screenWidth * 0.36,
+              right: screenWidth * 0.36,
               child: Image.asset('assets/images/otp.png'),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 300.0),
+              padding: const EdgeInsets.only(top: 280),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -101,17 +101,20 @@ class _OtpState extends State<Otp> {
                       const SizedBox(
                         width: 10,
                       ),
-                      Text(
-                        "Send Again",
-                        style: FontConstant.styleRegular(
-                          fontSize: 13,
-                          color: AppColors.primaryColor,
+                      InkWell(
+                        onTap: (){},
+                        child: Text(
+                          "Send Again",
+                          style: FontConstant.styleRegular(
+                            fontSize: 13,
+                            color: AppColors.primaryColor,
+                          ),
                         ),
                       )
                     ],
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   Text(
                     'Resend in 00:15',
@@ -120,13 +123,13 @@ class _OtpState extends State<Otp> {
                       color: Colors.grey.shade600,
                     ),
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 10),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 26),
                     child: CustomButton(
                       text: 'VERIFY',
                       onPressed: () {
-                        Get.toNamed('/profile1');
+                        Get.offAndToNamed('/profile1');
                       },
                       color: AppColors.primaryColor,
                       textStyle: FontConstant.styleRegular(
@@ -147,7 +150,7 @@ class _OtpState extends State<Otp> {
   Widget _buildOtpTextField(int index) {
     return SizedBox(
       width: 60,
-      height: 60,
+      height: 510,
       child: TextFormField(
         controller: _otpControllers[index],
         textAlign: TextAlign.center,
@@ -162,6 +165,7 @@ class _OtpState extends State<Otp> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
           ),
+          contentPadding: EdgeInsets.symmetric(vertical: 1)
         ),
         onChanged: (value) {
           if (value.length == 1 && index < 3) {

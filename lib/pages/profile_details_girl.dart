@@ -415,7 +415,7 @@ class _CompatiblityState extends State<Compatiblity> {
                     color: Color(0xff583789),
                   )),
               Padding(
-                padding: const EdgeInsets.only(bottom: 45.0),
+                padding: const EdgeInsets.only(bottom: 45.0, left: 5, right: 5),
                 child: Text(
                   'You match 5/8 of \nher preferences',
                   textAlign: TextAlign.center,
@@ -424,14 +424,20 @@ class _CompatiblityState extends State<Compatiblity> {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(bottom: 45),
+                padding: EdgeInsets.only(bottom: 46),
                 child: Icon(
                   Icons.arrow_forward,
                   color: Color(0xff583789),
                 ),
               ),
-              const Spacer(),
-              buildAvatarColumn('assets/images/avatar.jpg', 'Your \nMatch'),
+              const SizedBox(
+                width: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child:
+                    buildAvatarColumn('assets/images/hero.jpg', 'Your \nMatch'),
+              ),
             ],
           ),
           Padding(
