@@ -392,8 +392,7 @@ class _CompatiblityState extends State<Compatiblity> {
     return Container(
       width: double.infinity,
       color: Colors.white,
-      padding:
-          const EdgeInsets.only(left: 18.0, right: 18, top: 10, bottom: 10),
+      padding: const EdgeInsets.only(left: 18.0, right: 18, top: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -409,11 +408,12 @@ class _CompatiblityState extends State<Compatiblity> {
             children: [
               buildAvatarColumn('assets/images/girl1.png', 'Her \nPreferences'),
               const Padding(
-                  padding: EdgeInsets.only(bottom: 45.0),
-                  child: Icon(
-                    Icons.arrow_back,
-                    color: Color(0xff583789),
-                  )),
+                padding: EdgeInsets.only(bottom: 45.0),
+                child: Icon(
+                  Icons.arrow_back,
+                  color: Color(0xff583789),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 45.0, left: 5, right: 5),
                 child: Text(
@@ -431,7 +431,7 @@ class _CompatiblityState extends State<Compatiblity> {
                 ),
               ),
               const SizedBox(
-                width: 20,
+                width: 10,
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),

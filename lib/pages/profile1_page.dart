@@ -16,6 +16,81 @@ class _Profile1PageState extends State<Profile1Page> {
   int _selectedIndex = -1;
   int _selectedIndex1 = -1;
 
+  Widget buildToggleItem(String text, {bool isGender = false, required int index}) {
+    return GestureDetector(
+      onTap: () => setState(() {
+        if (isGender) {
+          _selectedIndex1 = index;
+        } else {
+          _selectedIndex = index;
+          _selectedIndex1 = -1;
+        }
+      }),
+      child: Card(
+        color: (isGender ? _selectedIndex1 : _selectedIndex) == index
+            ? AppColors.primaryLight
+            : AppColors.background,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: (isGender ? _selectedIndex1 : _selectedIndex) == index
+                ? Border.all(color: AppColors.primaryColor, width: 2)
+                : null,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundColor: Colors.transparent,
+                radius: 20,
+                child: isGender
+                    ? genders[index].image
+                    : profiles[index].image,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                isGender ? genders[index].gender : profiles[index].topic,
+                style: FontConstant.styleMedium(
+                    fontSize: 14, color: AppColors.primaryColor),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Widget to build gender selection grid
+  Widget buildGenderSelection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Gender',
+          style: FontConstant.styleMedium(fontSize: 18, color: Colors.black),
+        ),
+        const SizedBox(height: 10),
+        SizedBox(
+          height: 95,
+          child: GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              childAspectRatio: 16 / 9,
+            ),
+            itemCount: genders.length,
+            itemBuilder: (context, index) {
+              return buildToggleItem(genders[index].gender, isGender: true, index: index);
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -42,15 +117,13 @@ class _Profile1PageState extends State<Profile1Page> {
             ),
             Container(
               height: screenHeight,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 18.0, vertical: 18),
+              padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 18),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'This Profile is for',
-                    style: FontConstant.styleMedium(
-                        fontSize: 16, color: Colors.black),
+                    style: FontConstant.styleMedium(fontSize: 16, color: Colors.black),
                   ),
                   const SizedBox(height: 10),
                   SizedBox(
@@ -58,8 +131,7 @@ class _Profile1PageState extends State<Profile1Page> {
                     child: GridView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       scrollDirection: Axis.vertical,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         crossAxisSpacing: 10,
                         mainAxisSpacing: 10,
@@ -67,121 +139,24 @@ class _Profile1PageState extends State<Profile1Page> {
                       ),
                       itemCount: profiles.length,
                       itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _selectedIndex = index;
-                            });
-                          },
-                          child: Card(
-                            color: _selectedIndex == index
-                                ? AppColors.primaryLight
-                                : AppColors.background,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: _selectedIndex == index
-                                    ? Border.all(
-                                        color: AppColors.primaryColor, width: 2)
-                                    : null,
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  CircleAvatar(
-                                    backgroundColor: Colors.transparent,
-                                    radius: 20,
-                                    child: profiles[index].image,
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    profiles[index].topic,
-                                    style: FontConstant.styleMedium(
-                                        fontSize: 14,
-                                        color: AppColors.primaryColor),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        );
+                        return buildToggleItem(profiles[index].topic, index: index);
                       },
                     ),
                   ),
-                  Text(
-                    'Gender',
-                    style: FontConstant.styleMedium(
-                        fontSize: 18, color: Colors.black),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(
-                    height: 95,
-                    child: GridView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      scrollDirection: Axis.vertical,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                        childAspectRatio: 16 / 9,
-                      ),
-                      itemCount: genders.length,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _selectedIndex1 = index;
-                            });
-                          },
-                          child: Card(
-                            color: _selectedIndex1 == index
-                                ? AppColors.primaryLight
-                                : AppColors.background,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: _selectedIndex1 == index
-                                    ? Border.all(
-                                        color: AppColors.primaryColor, width: 2)
-                                    : null,
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  CircleAvatar(
-                                    backgroundColor: Colors.transparent,
-                                    radius: 20,
-                                    child: genders[index].image,
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    genders[index].gender,
-                                    style: FontConstant.styleMedium(
-                                        fontSize: 14,
-                                        color: AppColors.primaryColor),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
+                  if (_selectedIndex != -1 &&
+                      (profiles[_selectedIndex].topic == 'Myself' ||
+                          profiles[_selectedIndex].topic == 'My Friend' ||
+                          profiles[_selectedIndex].topic == 'My Relative'))
+                    buildGenderSelection(),
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 10, right: 10, top: 40),
+                    padding: const EdgeInsets.only(left: 10, right: 10, top: 40),
                     child: CustomButton(
                       text: 'CONTINUE',
                       onPressed: () {
                         Get.offAndToNamed('/profile2');
                       },
                       color: AppColors.primaryColor,
-                      textStyle: FontConstant.styleRegular(
-                          fontSize: 18, color: Colors.white),
+                      textStyle: FontConstant.styleRegular(fontSize: 18, color: Colors.white),
                     ),
                   ),
                 ],
