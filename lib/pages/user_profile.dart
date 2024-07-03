@@ -144,7 +144,7 @@ class _UserProfileState extends State<UserProfile> {
                   ),
                   buildProfileOption(
                     icon: Icons.message,
-                    label: "Chat",
+                    label: "Chats",
                     onTap: () {},
                   ),
                 ],
