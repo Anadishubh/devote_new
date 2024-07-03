@@ -111,7 +111,7 @@ class _Profile1PageState extends State<Profile1Page> {
           children: [
             Padding(
               padding: EdgeInsets.only(left: screenWidth * 0.2),
-              child: Image(
+              child: const Image(
                 image: AssetImage('assets/images/bg3.png'),
               ),
             ),

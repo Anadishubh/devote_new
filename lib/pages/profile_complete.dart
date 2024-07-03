@@ -174,7 +174,7 @@ class _ProfileCompleteState extends State<ProfileComplete> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 60,
                       width: 60,
                       child: CircleAvatar(

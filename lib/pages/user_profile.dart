@@ -33,7 +33,7 @@ class _UserProfileState extends State<UserProfile> {
                 Container(
                   height: 250,
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [AppColors.primaryColor, Colors.green],
                       begin: Alignment.topCenter,
@@ -55,13 +55,13 @@ class _UserProfileState extends State<UserProfile> {
                     decoration: BoxDecoration(
                       color: AppColors.constColor,
                       border: Border.all(color: Colors.grey.shade200),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.3),
                           spreadRadius: 3,
                           blurRadius: 5,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                     ),
@@ -70,7 +70,7 @@ class _UserProfileState extends State<UserProfile> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: ClipRRect(
-                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                            borderRadius: const BorderRadius.all(Radius.circular(50)),
                             child: Image.asset(
                               "assets/images/hero.jpg",
                               fit: BoxFit.cover,
@@ -104,7 +104,7 @@ class _UserProfileState extends State<UserProfile> {
                               alignment: Alignment.center,
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 12, vertical: 5),
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: AppColors.primaryColor,
                                 borderRadius: BorderRadius.all(Radius.circular(20)),
                               ),
@@ -202,7 +202,7 @@ class _UserProfileState extends State<UserProfile> {
                   color: Colors.grey.withOpacity(0.3),
                   spreadRadius: 3,
                   blurRadius: 5,
-                  offset: Offset(0, 3),
+                  offset: const Offset(0, 3),
                 ),
               ],
             ),
@@ -241,8 +241,8 @@ class _UserProfileState extends State<UserProfile> {
               style: FontConstant.styleSemiBold(
                   fontSize: 16, color: AppColors.black),
             ),
-            Spacer(),
-            Icon(
+            const Spacer(),
+            const Icon(
               Icons.arrow_forward_ios,
               color: AppColors.primaryColor,
               size: 20,

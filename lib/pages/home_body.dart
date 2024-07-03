@@ -14,8 +14,8 @@ class HomeBody extends StatelessWidget {
 
     final List<List> matches = [
       [
-        "Surbi Tiwari",
-        "Software Professinal-Graduate",
+        "Surbhi Tiwari",
+        "Software Professional-Graduate",
         "26",
         "5ft 5 inch",
         "Knatri Hindu - Bangalore, India",
@@ -283,7 +283,7 @@ class HomeBody extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                "Intersted In You",
+                "Interested In You",
                 style: FontConstant.styleMedium(
                     fontSize: 17, color: AppColors.black),
               ),
@@ -307,7 +307,7 @@ class HomeBody extends StatelessWidget {
               String qualification = entry.value[1];
               String age = entry.value[2];
               String height = entry.value[3];
-              String aadress = entry.value[4];
+              String address = entry.value[4];
               String image = entry.value[5];
               //  String head = entry.value[1];
 
@@ -378,7 +378,7 @@ class HomeBody extends StatelessWidget {
                                           fontSize: 12, color: Colors.grey),
                                     ),
                                     Text(
-                                      aadress,
+                                      address,
                                       style: FontConstant.styleMedium(
                                           fontSize: 12,
                                           color: AppColors.black),

@@ -14,6 +14,7 @@ class CustomTextField extends StatelessWidget {
   final void Function(String)? onChanged;
 
   const CustomTextField({
+    super.key,
     required this.controller,
     this.labelText = "",
     this.hintText = '',
@@ -39,7 +40,8 @@ class CustomTextField extends StatelessWidget {
         labelText: labelText,
         hintText: hintText,
         counterText: "",
-        contentPadding: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
+        contentPadding:
+            const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
         enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(),
         ),
