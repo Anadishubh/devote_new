@@ -56,7 +56,7 @@ class _DevotionDetailsState extends State<DevotionDetails> {
         leading: IconButton(
           icon: Image.asset('assets/images/icons/arrow.png'),
           onPressed: () {
-            Get.offAndToNamed('/contact');
+            Get.offAndToNamed('/prof');
           },
         ),
       ),
