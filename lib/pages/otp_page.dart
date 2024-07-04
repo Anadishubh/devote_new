@@ -5,7 +5,7 @@ import '../constants/color_constant.dart';
 import '../constants/font_constant.dart';
 
 class Otp extends StatefulWidget {
-  const Otp({super.key});
+  const Otp({Key? key}) : super(key: key);
 
   @override
   State<Otp> createState() => _OtpState();
@@ -13,7 +13,8 @@ class Otp extends StatefulWidget {
 
 class _OtpState extends State<Otp> {
   final TextEditingController _otpController = TextEditingController();
-  final List<TextEditingController> _otpControllers = List.generate(4, (index) => TextEditingController());
+  final List<TextEditingController> _otpControllers =
+  List.generate(4, (index) => TextEditingController());
 
   @override
   void dispose() {
@@ -144,31 +145,42 @@ class _OtpState extends State<Otp> {
   Widget _buildOtpTextField(int index) {
     return SizedBox(
       width: 60,
-      child: TextFormField(
-        controller: _otpControllers[index],
-        textAlign: TextAlign.center,
-        keyboardType: TextInputType.number,
-        maxLength: 1,
-        decoration: InputDecoration(
-          fillColor: Colors.white,
-          filled: true,
-          counter: const Offstage(),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(23),
-            borderSide: const BorderSide(color: AppColors.primaryColor),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(23),
-          ),
-          contentPadding: const EdgeInsets.symmetric(),
+      child: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 10,
+              offset: const Offset(0, 5),
+            ),
+          ],
         ),
-        onChanged: (value) {
-          if (value.length == 1 && index < 3) {
-            FocusScope.of(context).nextFocus();
-          } else if (value.isEmpty && index > 0) {
-            FocusScope.of(context).previousFocus();
-          }
-        },
+        child: TextFormField(
+          controller: _otpControllers[index],
+          textAlign: TextAlign.center,
+          keyboardType: TextInputType.number,
+          maxLength: 1,
+          decoration: InputDecoration(
+            fillColor: Colors.white,
+            filled: true,
+            counter: const Offstage(),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(23),
+              borderSide: const BorderSide(color: AppColors.primaryColor),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(23),
+            ),
+            contentPadding: const EdgeInsets.symmetric(),
+          ),
+          onChanged: (value) {
+            if (value.length == 1 && index < 3) {
+              FocusScope.of(context).nextFocus();
+            } else if (value.isEmpty && index > 0) {
+              FocusScope.of(context).previousFocus();
+            }
+          },
+        ),
       ),
     );
   }

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MobilePage extends StatefulWidget {
-  const MobilePage({super.key});
+  const MobilePage({Key? key}) : super(key: key);
 
   @override
   State<MobilePage> createState() => _MobilePageState();
@@ -55,26 +55,39 @@ class _MobilePageState extends State<MobilePage> {
                     child: Text(
                       'Enter Mobile Number or Email ID',
                       style: FontConstant.styleRegular(
-                          fontSize: 16, color: Colors.black),
+                        fontSize: 16,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        fillColor: Colors.white,
-                        filled: true,
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(23),
-                          borderSide:
-                          const BorderSide(color: AppColors.primaryColor),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 10,
+                            offset: const Offset(0, 5),
+                          ),
+                        ],
+                      ),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(23),
+                            borderSide:
+                            const BorderSide(color: AppColors.primaryColor),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(23),
+                          ),
+                          contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 12),
                         ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(23),
-                        ),
-                        contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12),
                       ),
                     ),
                   ),
@@ -88,7 +101,9 @@ class _MobilePageState extends State<MobilePage> {
                       },
                       color: AppColors.primaryColor,
                       textStyle: FontConstant.styleRegular(
-                          fontSize: 20, color: Colors.white),
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],
@@ -105,7 +120,9 @@ class _MobilePageState extends State<MobilePage> {
             Text(
               "You don't have any account?",
               style: FontConstant.styleRegular(
-                  fontSize: 14, color: Colors.grey.shade600),
+                fontSize: 14,
+                color: Colors.grey.shade600,
+              ),
             ),
             TextButton(
               onPressed: () {
@@ -114,7 +131,9 @@ class _MobilePageState extends State<MobilePage> {
               child: Text(
                 'Sign Up',
                 style: FontConstant.styleRegular(
-                    fontSize: 14, color: AppColors.primaryColor),
+                  fontSize: 14,
+                  color: AppColors.primaryColor,
+                ),
               ),
             ),
           ],
