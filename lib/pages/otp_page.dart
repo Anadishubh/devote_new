@@ -79,6 +79,7 @@ class _OtpState extends State<Otp> {
                   const SizedBox(height: 10),
                   SizedBox(
                     height: 60,
+                    width: 280,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: List.generate(4, (index) => _buildOtpTextField(index)),
@@ -149,15 +150,17 @@ class _OtpState extends State<Otp> {
         keyboardType: TextInputType.number,
         maxLength: 1,
         decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
           counter: const Offstage(),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(23),
             borderSide: const BorderSide(color: AppColors.primaryColor),
           ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(23),
           ),
-          contentPadding: const EdgeInsets.symmetric(vertical: 1),
+          contentPadding: const EdgeInsets.symmetric(),
         ),
         onChanged: (value) {
           if (value.length == 1 && index < 3) {

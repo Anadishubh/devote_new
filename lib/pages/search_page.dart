@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:devotee_matrimony/constants/color_constant.dart';
 import 'package:devotee_matrimony/constants/font_constant.dart';
 import 'package:get/get.dart';
+import '../constants/custom_dropdown.dart';
 import '../constants/profile_constant.dart';
 
 class SearchPage extends StatefulWidget {
@@ -27,8 +28,14 @@ class _SearchPageState extends State<SearchPage> {
     CountryController countryController = Get.put(CountryController());
     StateController stateController = Get.put(StateController());
 
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
+    final screenHeight = MediaQuery
+        .of(context)
+        .size
+        .height;
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -135,31 +142,39 @@ class _SearchPageState extends State<SearchPage> {
                   }),
                   const SizedBox(height: 10),
                   buildDropdown('Height', HeightController.heightTypes(),
-                      heightController.selectItem),
+                      heightController.selectItem, hintText: 'Choose'),
                   const SizedBox(height: 10),
-                  buildDropdown('Martial Status', MartialController.martialStatus(),
-                      martialController.selectItem),
+                  buildDropdown(
+                      'Martial Status',
+                      MartialController.martialStatus(),
+                      martialController.selectItem, hintText: 'Choose'),
                   const SizedBox(height: 10),
                   buildDropdown('Religion', ReligionController.religionStatus(),
-                      religionController.selectItem),
+                      religionController.selectItem, hintText: 'Choose'),
                   const SizedBox(height: 10),
                   buildDropdown('Caste', CasteController.casteStatus(),
-                      casteController.selectItem),
+                      casteController.selectItem, hintText: 'Choose'),
                   const SizedBox(height: 10),
                   buildDropdown('Country', CountryController.countryList(),
-                      countryController.selectItem),
+                      countryController.selectItem, hintText: 'Choose'),
                   const SizedBox(height: 10),
                   buildDropdown('State', StateController.stateRegion(),
-                      stateController.selectItem),
+                      stateController.selectItem, hintText: 'Choose'),
                   const SizedBox(height: 10),
-                  buildDropdown('District/City', ReligionController.religionStatus(),
-                      religionController.selectItem),
+                  buildDropdown(
+                      'District/City',
+                      ReligionController.religionStatus(),
+                      religionController.selectItem, hintText: 'Choose'),
                   const SizedBox(height: 10),
-                  buildDropdown('Education', ReligionController.religionStatus(),
-                      religionController.selectItem),
+                  buildDropdown(
+                      'Education',
+                      ReligionController.religionStatus(),
+                      religionController.selectItem, hintText: 'Choose'),
                   const SizedBox(height: 10),
-                  buildDropdown('Show Profile', ReligionController.religionStatus(),
-                      religionController.selectItem),
+                  buildDropdown(
+                      'Show Profile',
+                      ReligionController.religionStatus(),
+                      religionController.selectItem, hintText: 'Choose'),
                   const SizedBox(height: 20),
                   Center(
                     child: CustomButton(
@@ -189,7 +204,8 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
-  Widget buildRangeSlider(String title, double start, double end, Function(RangeValues) onChanged) {
+  Widget buildRangeSlider(String title, double start, double end,
+      Function(RangeValues) onChanged) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -205,33 +221,6 @@ class _SearchPageState extends State<SearchPage> {
           divisions: 100,
           labels: RangeLabels(start.round().toString(), end.round().toString()),
           onChanged: onChanged,
-        ),
-      ],
-    );
-  }
-
-  Widget buildDropdown(String title, List<String> items, Function(String?) onChanged) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 8.0),
-          child: CustomDropdown(
-            decoration: const CustomDropdownDecoration(
-              expandedFillColor: AppColors.primaryLight,
-              listItemDecoration: ListItemDecoration(
-                splashColor: Colors.white,
-              ),
-              listItemStyle: TextStyle(color: Colors.black),
-            ),
-            hintText: 'Choose',
-            items: items,
-            onChanged: onChanged,
-          ),
         ),
       ],
     );

@@ -1,0 +1,237 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../constants/button_constant.dart';
+import '../constants/color_constant.dart';
+import '../constants/custom_dropdown.dart';
+import '../constants/font_constant.dart';
+import '../constants/profile_constant.dart';
+import 'package:easy_radio/easy_radio.dart';
+
+class ProfessionalDetailsPage extends StatefulWidget {
+  const ProfessionalDetailsPage({super.key});
+
+  @override
+  State<ProfessionalDetailsPage> createState() =>
+      _ProfessionalDetailsPageState();
+}
+
+class _ProfessionalDetailsPageState extends State<ProfessionalDetailsPage> {
+  int? selectedValue;
+
+  @override
+  Widget build(BuildContext context) {
+    QualificationController qualificationController =
+        Get.put(QualificationController());
+
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      appBar: AppBar(
+        backgroundColor: AppColors.primaryColor,
+        title: Text(
+          "Professional Details",
+          style: FontConstant.styleMedium(fontSize: 19, color: Colors.white),
+        ),
+        leading: IconButton(
+          icon: Image.asset('assets/images/icons/arrow.png'),
+          onPressed: () {
+            Get.offAndToNamed('/education');
+          },
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Container(
+              height: screenHeight * 0.45,
+              width: screenWidth,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/bg3.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Positioned(
+              top: 25,
+              left: screenWidth * 0.35,
+              right: screenWidth * 0.35,
+              child: Image.asset('assets/images/occupation.png'),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.18,
+                left: 22,
+                right: 22,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 8),
+                  buildDropdown(
+                    'Title of the profession',
+                    QualificationController.qualifications(),
+                    qualificationController.selectedItem.call,
+                    hintText: 'Choose',
+                  ),
+                  const SizedBox(height: 15),
+                  Text(
+                    'Working anywhere?*',
+                    style: FontConstant.styleRegular(
+                        fontSize: 16, color: Colors.black),
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: RadioListTile<int>(
+                          title: const Text('Yes'),
+                          activeColor: AppColors.primaryColor,
+                          value: 1,
+                          groupValue: selectedValue,
+                          onChanged: (int? value) {
+                            setState(() {
+                              selectedValue = value;
+                            });
+                          },
+                        ),
+                      ),
+                      Expanded(
+                        child: RadioListTile<int>(
+                          title: const Text('No'),
+                          activeColor: AppColors.primaryColor,
+                          value: 2,
+                          groupValue: selectedValue,
+                          onChanged: (int? value) {
+                            setState(() {
+                              selectedValue = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 15),
+                  _buildFormField('Company name'),
+                  const SizedBox(height: 15),
+                  _buildFormField('Working State'),
+                  const SizedBox(height: 15),
+                  _buildFormField('Working city'),
+                  const SizedBox(height: 15),
+                  _buildFormField('Work experience'),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    'Income earning range (in a year)',
+                    style: FontConstant.styleRegular(
+                        fontSize: 16, color: Colors.black),
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: buildDropdown(
+                          null,
+                          QualificationController.qualifications(),
+                          qualificationController.selectedItem.call,
+                          hintText: 'Range from',
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: buildDropdown(
+                          null,
+                          QualificationController.qualifications(),
+                          qualificationController.selectedItem.call,
+                          hintText: 'Range to',
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 30),
+                  _buildContinueButton(),
+                  const SizedBox(height: 15),
+                  _buildSkipButton(),
+                  const SizedBox(height: 15),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildFormField(String? labelText) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (labelText != null)
+          Text(
+            labelText,
+            style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
+          ),
+        const SizedBox(height: 8),
+        Container(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 10,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
+          child: TextFormField(
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(23),
+                borderSide: const BorderSide(color: AppColors.primaryColor),
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(23),
+                borderSide: BorderSide(
+                  color: Colors.black.withOpacity(0.4),
+                ),
+              ),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildContinueButton() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+      child: CustomButton(
+        text: 'CONTINUE',
+        onPressed: () {
+          Get.offAndToNamed('/devotion');
+        },
+        color: AppColors.primaryColor,
+        textStyle: FontConstant.styleRegular(fontSize: 20, color: Colors.white),
+      ),
+    );
+  }
+
+  Widget _buildSkipButton() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+      child: CustomButton(
+        text: 'Skip',
+        onPressed: () {
+          Get.offAndToNamed('/dashboard');
+        },
+        color: Colors.transparent,
+        textStyle: FontConstant.styleRegular(fontSize: 20, color: Colors.black),
+      ),
+    );
+  }
+}

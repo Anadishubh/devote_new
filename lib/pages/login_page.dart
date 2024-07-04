@@ -130,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.only(left: 26, right: 26),
                 child: Text(
                   textAlign: TextAlign.center,
-                  'If you are outside of India, You can use email id for login',
+                  'Note: People living outside India can login with email.',
                   style: FontConstant.styleRegular(
                       fontSize: 18, color: Colors.white),
                 ),

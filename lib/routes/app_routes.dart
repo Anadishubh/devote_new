@@ -1,4 +1,6 @@
+import 'package:devotee_matrimony/pages/contact_page.dart';
 import 'package:devotee_matrimony/pages/dashboard.dart';
+import 'package:devotee_matrimony/pages/devotion_details.dart';
 import 'package:devotee_matrimony/pages/education_page.dart';
 import 'package:devotee_matrimony/pages/family_page.dart';
 import 'package:devotee_matrimony/pages/login_page.dart';
@@ -6,6 +8,7 @@ import 'package:devotee_matrimony/pages/mobile_page.dart';
 import 'package:devotee_matrimony/pages/occupation.dart';
 import 'package:devotee_matrimony/pages/otp_page.dart';
 import 'package:devotee_matrimony/pages/photo_upload.dart';
+import 'package:devotee_matrimony/pages/professional_details_page.dart';
 import 'package:devotee_matrimony/pages/profile1_page.dart';
 import 'package:devotee_matrimony/pages/profile2_page.dart';
 import 'package:devotee_matrimony/pages/profile_complete.dart';
@@ -31,6 +34,9 @@ class AppRoutes {
   static const String profileComplete = '/pc';
   static const String dashboard = '/dashboard';
   static const String searchResult = '/searchResult';
+  static const String contact = '/contact';
+  static const String professional = '/prof';
+  static const String devotion = '/devotion';
 
 
   static final List<GetPage> routes = [
@@ -66,7 +72,7 @@ class AppRoutes {
     ),
     GetPage(
       name: profile2,
-      page: () => const Profile2(),
+      page: () => const Profile2Page(),
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 400),
     ),
@@ -121,6 +127,24 @@ class AppRoutes {
     GetPage(
       name: searchResult,
       page: () => const SearchResult(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 400),
+    ),
+    GetPage(
+      name: contact,
+      page: () => const ContactPage(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 400),
+    ),
+    GetPage(
+      name: professional,
+      page: () => const ProfessionalDetailsPage(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 400),
+    ),
+    GetPage(
+      name: devotion,
+      page: () => const DevotionDetails(),
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 400),
     ),

@@ -1,20 +1,21 @@
-import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:devotee_matrimony/constants/button_constant.dart';
 import 'package:devotee_matrimony/constants/color_constant.dart';
+import 'package:devotee_matrimony/constants/custom_dropdown.dart';
 import 'package:devotee_matrimony/constants/font_constant.dart';
 import 'package:devotee_matrimony/constants/profile_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Profile2 extends StatefulWidget {
-  const Profile2({super.key});
+class Profile2Page extends StatefulWidget {
+  const Profile2Page({super.key});
 
   @override
-  State<Profile2> createState() => _Profile2State();
+  State<Profile2Page> createState() => _Profile2PageState();
 }
 
-class _Profile2State extends State<Profile2> {
+class _Profile2PageState extends State<Profile2Page> {
   ComplexionController complexionController = Get.put(ComplexionController());
+  HeightController heightController = Get.put(HeightController());
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,8 @@ class _Profile2State extends State<Profile2> {
       appBar: AppBar(
         backgroundColor: AppColors.primaryColor,
         title: Text(
-          "Let's Build Your Profile",
-          style: FontConstant.styleMedium(fontSize: 19, color: Colors.white),
+          "Basic Details",
+          style: FontConstant.styleSemiBold(fontSize: 18, color: Colors.white),
         ),
         leading: IconButton(
           icon: Image.asset('assets/images/icons/arrow.png'),
@@ -50,73 +51,94 @@ class _Profile2State extends State<Profile2> {
               ),
             ),
             Positioned(
-              left: screenWidth * 0.3,
-              right: screenWidth * 0.3,
+              left: screenWidth * 0.35,
+              right: screenWidth * 0.35,
               child: Image.asset('assets/images/profile.png'),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 22.0, right: 22, top: 190),
+              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 150),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: _buildFormField('First Name'),
-                      ),
-                      const SizedBox(width: 20),
-                      Expanded(
-                        child: _buildFormField('Last Name'),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  _buildDateOfBirthFields(),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: _buildFormField('Weight (in KG)'),
-                      ),
-                      const SizedBox(width: 20),
-                      Expanded(
-                        child: _buildFormField('Height'),
-                      ),
-                    ],
+                  Text(
+                    "(*) Fields are mandatory",
+                    style: FontConstant.styleRegular(
+                      fontSize: 16,
+                      color: AppColors.primaryColor,
+                    ),
                   ),
                   const SizedBox(height: 20),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Complexion',
-                        style: FontConstant.styleRegular(
-                            fontSize: 16, color: Colors.black),
+                      _buildFormField('Full name*'),
+                      const SizedBox(height: 15),
+                      _buildFormField('Initiated name (Spiritual name)'),
+                      const SizedBox(height: 15),
+                      Row(
+                        children: [
+                          Expanded(child: _buildFormField('Gotra*')),
+                          const SizedBox(width: 10),
+                          Expanded(child: _buildFormField('Caste*')),
+                        ],
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      CustomDropdown(
-                        hintText: 'Select option',
-                        items: ComplexionController.complexionColors(),
-                        onChanged: (value) {
-                          complexionController.selectedItem(value);
-                        },
+                      const SizedBox(height: 15),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: buildDropdown(
+                              'Height',
+                              HeightController.heightTypes(),
+                              heightController.selectItem, hintText: 'Choose',
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(child: _buildFormField('Weight*')),
+                        ],
                       ),
                     ],
                   ),
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 15),
+                  _buildDateOfBirthFields(),
+                  const SizedBox(height: 15),
+                  _buildFormField('Current Staying City*'),
+                  const SizedBox(height: 15),
+                  _buildFormField('Permanent City*'),
+                  const SizedBox(height: 15),
+                  _buildFormField('Hobbies*'),
+                  const SizedBox(height: 15),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      buildDropdown(
+                        'Diet',
+                        HeightController.heightTypes(),
+                        heightController.selectedItem.call, hintText: 'Choose',
+                      ),
+                      const SizedBox(height: 15),
+                      Text(
+                        'About',
+                        style: FontConstant.styleRegular(
+                          fontSize: 16,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      _buildAboutField(),
+                    ],
+                  ),
+                  const SizedBox(height: 30),
                   Padding(
-                    padding: const EdgeInsets.only(left: 14.0, right: 14),
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
                     child: CustomButton(
                       text: 'CONTINUE',
                       onPressed: () {
-                        Get.offAndToNamed('/education');
+                        Get.offAndToNamed('/contact');
                       },
                       color: AppColors.primaryColor,
                       textStyle: FontConstant.styleRegular(
-                          fontSize: 20, color: Colors.white),
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],
@@ -137,18 +159,32 @@ class _Profile2State extends State<Profile2> {
           style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
         ),
         const SizedBox(height: 8),
-        TextFormField(
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(5),
-              borderSide: const BorderSide(color: AppColors.primaryColor),
+        Container(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 10,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
+          child: TextFormField(
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(23),
+                borderSide: const BorderSide(color: AppColors.primaryColor),
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(23),
+                borderSide: BorderSide(
+                  color: Colors.black.withOpacity(0.4),
+                ),
+              ),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
             ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(5),
-            ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 12),
           ),
         ),
       ],
@@ -160,77 +196,90 @@ class _Profile2State extends State<Profile2> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Date Of Birth',
+          'Date Of Birth*',
           style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
         ),
         const SizedBox(height: 8),
         Row(
           children: [
             Expanded(
-              child: TextFormField(
-                keyboardType: TextInputType.number,
-                maxLength: 2,
-                decoration: InputDecoration(
-                  counterText: "",
-                  hintText: 'Day',
-                  filled: true,
-                  fillColor: Colors.white,
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                    borderSide: const BorderSide(color: AppColors.primaryColor),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-                ),
-              ),
+              child: _buildDateField('Day', 2),
             ),
             const SizedBox(width: 8),
             Expanded(
-              child: TextFormField(
-                keyboardType: TextInputType.number,
-                maxLength: 2,
-                decoration: InputDecoration(
-                  counterText: "",
-                  hintText: 'Month',
-                  filled: true,
-                  fillColor: Colors.white,
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                    borderSide: const BorderSide(color: AppColors.primaryColor),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-                ),
-              ),
+              child: _buildDateField('Month', 2),
             ),
             const SizedBox(width: 8),
             Expanded(
-              child: TextFormField(
-                keyboardType: TextInputType.number,
-                maxLength: 4,
-                decoration: InputDecoration(
-                  counterText: "",
-                  hintText: 'Year',
-                  filled: true,
-                  fillColor: Colors.white,
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                    borderSide: const BorderSide(color: AppColors.primaryColor),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-                ),
-              ),
+              child: _buildDateField('Year', 4),
             ),
           ],
         ),
       ],
+    );
+  }
+
+  Widget _buildDateField(String hintText, int maxLength) {
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: TextFormField(
+        keyboardType: TextInputType.number,
+        maxLength: maxLength,
+        decoration: InputDecoration(
+          counterText: "",
+          hintText: hintText,
+          filled: true,
+          fillColor: Colors.white,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(23),
+            borderSide: const BorderSide(color: AppColors.primaryColor),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(23),
+          ),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAboutField() {
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: TextFormField(
+        maxLines: 8,
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.white,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(23),
+            borderSide: const BorderSide(color: AppColors.primaryColor),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(23),
+            borderSide: BorderSide(
+              color: Colors.black.withOpacity(0.4),
+            ),
+          ),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        ),
+      ),
     );
   }
 }

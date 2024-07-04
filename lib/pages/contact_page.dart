@@ -1,24 +1,19 @@
-import 'package:devotee_matrimony/constants/custom_dropdown.dart';
-import 'package:devotee_matrimony/constants/profile_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants/button_constant.dart';
 import '../constants/color_constant.dart';
 import '../constants/font_constant.dart';
 
-class EducationPage extends StatefulWidget {
-  const EducationPage({super.key});
+class ContactPage extends StatefulWidget {
+  const ContactPage({super.key});
 
   @override
-  State<EducationPage> createState() => _EducationPageState();
+  State<ContactPage> createState() => _ContactPageState();
 }
 
-class _EducationPageState extends State<EducationPage> {
+class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
-    QualificationController qualificationController =
-        Get.put(QualificationController());
-
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
@@ -27,13 +22,13 @@ class _EducationPageState extends State<EducationPage> {
       appBar: AppBar(
         backgroundColor: AppColors.primaryColor,
         title: Text(
-          "Education Qualification",
-          style: FontConstant.styleMedium(fontSize: 19, color: Colors.white),
+          "Contact Details",
+          style: FontConstant.styleSemiBold(fontSize: 18, color: Colors.white),
         ),
         leading: IconButton(
           icon: Image.asset('assets/images/icons/arrow.png'),
           onPressed: () {
-            Get.offAndToNamed('/contact');
+            Get.offAndToNamed('/profile2');
           },
         ),
       ),
@@ -51,10 +46,10 @@ class _EducationPageState extends State<EducationPage> {
               ),
             ),
             Positioned(
-              top: 25,
+              top: 40,
               left: screenWidth * 0.35,
               right: screenWidth * 0.35,
-              child: Image.asset('assets/images/education.png'),
+              child: Image.asset('assets/images/contact.png'),
             ),
             Padding(
               padding: EdgeInsets.only(
@@ -65,19 +60,26 @@ class _EducationPageState extends State<EducationPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 8),
-                  buildDropdown(
-                      'Highest Qualification*',
-                      QualificationController.qualifications(),
-                      qualificationController.selectedItem.call, hintText: 'Choose'),
+                  _buildFormField('Phone number*'),
                   const SizedBox(height: 15),
-                  _buildFormField('College/Institution name'),
+                  _buildFormField('Email address*'),
                   const SizedBox(height: 15),
-                  _buildSectionTitle('Describe other details(if any)'),
-                  const SizedBox(height: 8),
-                  _buildTextAreaField(),
+                  _buildFormField('Instagram ID'),
                   const SizedBox(height: 30),
-                  _buildContinueButton(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: CustomButton(
+                      text: 'CONTINUE',
+                      onPressed: () {
+                        Get.offAndToNamed('/education');
+                      },
+                      color: AppColors.primaryColor,
+                      textStyle: FontConstant.styleRegular(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                   const SizedBox(height: 15),
                   _buildSkipButton(),
                 ],
@@ -86,13 +88,6 @@ class _EducationPageState extends State<EducationPage> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildSectionTitle(String title) {
-    return Text(
-      title,
-      style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
     );
   }
 
@@ -134,53 +129,6 @@ class _EducationPageState extends State<EducationPage> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildTextAreaField() {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 5),
-          ),
-        ],
-      ),
-      child: TextFormField(
-        maxLines: 5,
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: Colors.white,
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(23),
-            borderSide: const BorderSide(color: AppColors.primaryColor),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(23),
-            borderSide: BorderSide(
-              color: Colors.black.withOpacity(0.4),
-            ),
-          ),
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildContinueButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      child: CustomButton(
-        text: 'CONTINUE',
-        onPressed: () {
-          Get.offAndToNamed('/prof');
-        },
-        color: AppColors.primaryColor,
-        textStyle: FontConstant.styleRegular(fontSize: 20, color: Colors.white),
-      ),
     );
   }
 

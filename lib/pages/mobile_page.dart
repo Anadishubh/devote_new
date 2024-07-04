@@ -66,12 +66,12 @@ class _MobilePageState extends State<MobilePage> {
                         fillColor: Colors.white,
                         filled: true,
                         focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(23),
                           borderSide:
                           const BorderSide(color: AppColors.primaryColor),
                         ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(23),
                         ),
                         contentPadding:
                         const EdgeInsets.symmetric(horizontal: 12),
@@ -80,7 +80,7 @@ class _MobilePageState extends State<MobilePage> {
                   ),
                   const SizedBox(height: 20),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 26.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 34.0),
                     child: CustomButton(
                       text: 'SEND OTP',
                       onPressed: () {

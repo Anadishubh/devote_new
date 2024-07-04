@@ -85,8 +85,8 @@ class _UserProfileState extends State<UserProfile> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Ram Potheneni",
-                              style: FontConstant.styleRegular(
+                              "Raghu Nath",
+                              style: FontConstant.styleMedium(
                                   fontSize: 16, color: Colors.black),
                             ),
                             Text(
