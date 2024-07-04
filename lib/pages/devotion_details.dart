@@ -213,35 +213,24 @@ class _DevotionDetailsState extends State<DevotionDetails> {
             style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
           ),
         const SizedBox(height: 10),
-        Container(
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 10,
-                offset: const Offset(0, 5),
-              ),
-            ],
-          ),
-          child: TextFormField(
-            maxLines: maxLines,
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              hintText: hintText ?? '',
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(23),
-                borderSide: const BorderSide(color: AppColors.primaryColor),
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(23),
-                borderSide: BorderSide(
-                  color: Colors.black.withOpacity(0.4),
-                ),
-              ),
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        TextFormField(
+          maxLines: maxLines,
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            hintText: hintText ?? '',
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(23),
+              borderSide: const BorderSide(color: AppColors.primaryColor),
             ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(23),
+              borderSide: BorderSide(
+                color: Colors.black.withOpacity(0.4),
+              ),
+            ),
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           ),
         ),
       ],

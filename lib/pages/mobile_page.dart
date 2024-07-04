@@ -63,31 +63,20 @@ class _MobilePageState extends State<MobilePage> {
                   const SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            offset: const Offset(0, 5),
-                          ),
-                        ],
-                      ),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(23),
-                            borderSide:
-                            const BorderSide(color: AppColors.primaryColor),
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(23),
-                          ),
-                          contentPadding:
-                          const EdgeInsets.symmetric(horizontal: 12),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        filled: true,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(23),
+                          borderSide:
+                          const BorderSide(color: AppColors.primaryColor),
                         ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(23),
+                        ),
+                        contentPadding:
+                        const EdgeInsets.symmetric(horizontal: 12),
                       ),
                     ),
                   ),

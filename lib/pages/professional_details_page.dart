@@ -5,7 +5,6 @@ import '../constants/color_constant.dart';
 import '../constants/custom_dropdown.dart';
 import '../constants/font_constant.dart';
 import '../constants/profile_constant.dart';
-import 'package:easy_radio/easy_radio.dart';
 
 class ProfessionalDetailsPage extends StatefulWidget {
   const ProfessionalDetailsPage({super.key});
@@ -175,32 +174,21 @@ class _ProfessionalDetailsPageState extends State<ProfessionalDetailsPage> {
             style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
           ),
         const SizedBox(height: 8),
-        Container(
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 10,
-                offset: const Offset(0, 5),
-              ),
-            ],
-          ),
-          child: TextFormField(
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(23),
-                borderSide: const BorderSide(color: AppColors.primaryColor),
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(23),
-                borderSide: BorderSide(
-                  color: Colors.black.withOpacity(0.4),
-                ),
-              ),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+        TextFormField(
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(23),
+              borderSide: const BorderSide(color: AppColors.primaryColor),
             ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(23),
+              borderSide: BorderSide(
+                color: Colors.black.withOpacity(0.4),
+              ),
+            ),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
           ),
         ),
       ],

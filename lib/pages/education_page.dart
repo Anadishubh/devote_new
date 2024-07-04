@@ -73,9 +73,10 @@ class _EducationPageState extends State<EducationPage> {
                   const SizedBox(height: 15),
                   _buildFormField('College/Institution name'),
                   const SizedBox(height: 15),
-                  _buildSectionTitle('Describe other details(if any)'),
+                  _buildFormField('Describe other details(if any)',maxLines: 6),
+                  // _buildSectionTitle('Describe other details(if any)'),
                   const SizedBox(height: 8),
-                  _buildTextAreaField(),
+                  // _buildTextAreaField(),
                   const SizedBox(height: 30),
                   _buildContinueButton(),
                   const SizedBox(height: 15),
@@ -89,14 +90,7 @@ class _EducationPageState extends State<EducationPage> {
     );
   }
 
-  Widget _buildSectionTitle(String title) {
-    return Text(
-      title,
-      style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
-    );
-  }
-
-  Widget _buildFormField(String labelText) {
+  Widget _buildFormField(String labelText, {int maxLines = 1}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -105,68 +99,25 @@ class _EducationPageState extends State<EducationPage> {
           style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
         ),
         const SizedBox(height: 8),
-        Container(
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 10,
-                offset: const Offset(0, 5),
-              ),
-            ],
-          ),
-          child: TextFormField(
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(23),
-                borderSide: const BorderSide(color: AppColors.primaryColor),
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(23),
-                borderSide: BorderSide(
-                  color: Colors.black.withOpacity(0.4),
-                ),
-              ),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+        TextFormField(
+          maxLines: maxLines,
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(23),
+              borderSide: const BorderSide(color: AppColors.primaryColor),
             ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(23),
+              borderSide: BorderSide(
+                color: Colors.black.withOpacity(0.4),
+              ),
+            ),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildTextAreaField() {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 5),
-          ),
-        ],
-      ),
-      child: TextFormField(
-        maxLines: 5,
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: Colors.white,
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(23),
-            borderSide: const BorderSide(color: AppColors.primaryColor),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(23),
-            borderSide: BorderSide(
-              color: Colors.black.withOpacity(0.4),
-            ),
-          ),
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        ),
-      ),
     );
   }
 

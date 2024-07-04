@@ -82,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text(
                   'Hare Krishna !',
                   style: FontConstant.styleBold(
-                      fontSize: 24, color: AppColors.constColor),
+                      fontSize: 25, color: AppColors.constColor),
                 ),
               ),
               const SizedBox(
@@ -91,30 +91,15 @@ class _LoginPageState extends State<LoginPage> {
               Text(
                 'Find your Devotional Match Today',
                 style: FontConstant.styleRegular(
-                    fontSize: 14, color: AppColors.constColor),
+                    fontSize: 18, color: AppColors.constColor),
               ),
               const SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 26, right: 26),
-                child: CustomButton(
-                  text: 'LOGIN WITH OTP',
-                  onPressed: () {
-                    Get.offAndToNamed('/mobile');
-                  },
-                  color: AppColors.constColor,
-                  textStyle: FontConstant.styleRegular(
-                      fontSize: 18, color: AppColors.primaryColor),
-                ),
-              ),
-              const SizedBox(
-                height: 15,
+                height: 30,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 26.0, right: 26),
                 child: CustomButton(
-                  text: 'LOGIN WITH EMAIL ID',
+                  text: 'LOGIN WITH Email or Mobile',
                   onPressed: () {
                     Get.offAndToNamed('/mobile');
                   },
@@ -124,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 30,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 26, right: 26),

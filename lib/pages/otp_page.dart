@@ -145,42 +145,31 @@ class _OtpState extends State<Otp> {
   Widget _buildOtpTextField(int index) {
     return SizedBox(
       width: 60,
-      child: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 10,
-              offset: const Offset(0, 5),
-            ),
-          ],
-        ),
-        child: TextFormField(
-          controller: _otpControllers[index],
-          textAlign: TextAlign.center,
-          keyboardType: TextInputType.number,
-          maxLength: 1,
-          decoration: InputDecoration(
-            fillColor: Colors.white,
-            filled: true,
-            counter: const Offstage(),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(23),
-              borderSide: const BorderSide(color: AppColors.primaryColor),
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(23),
-            ),
-            contentPadding: const EdgeInsets.symmetric(),
+      child: TextFormField(
+        controller: _otpControllers[index],
+        textAlign: TextAlign.center,
+        keyboardType: TextInputType.number,
+        maxLength: 1,
+        decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
+          counter: const Offstage(),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(23),
+            borderSide: const BorderSide(color: AppColors.primaryColor),
           ),
-          onChanged: (value) {
-            if (value.length == 1 && index < 3) {
-              FocusScope.of(context).nextFocus();
-            } else if (value.isEmpty && index > 0) {
-              FocusScope.of(context).previousFocus();
-            }
-          },
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(23),
+          ),
+          contentPadding: const EdgeInsets.symmetric(),
         ),
+        onChanged: (value) {
+          if (value.length == 1 && index < 3) {
+            FocusScope.of(context).nextFocus();
+          } else if (value.isEmpty && index > 0) {
+            FocusScope.of(context).previousFocus();
+          }
+        },
       ),
     );
   }

@@ -159,32 +159,21 @@ class _Profile2PageState extends State<Profile2Page> {
           style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
         ),
         const SizedBox(height: 8),
-        Container(
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 10,
-                offset: const Offset(0, 5),
-              ),
-            ],
-          ),
-          child: TextFormField(
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(23),
-                borderSide: const BorderSide(color: AppColors.primaryColor),
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(23),
-                borderSide: BorderSide(
-                  color: Colors.black.withOpacity(0.4),
-                ),
-              ),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+        TextFormField(
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(23),
+              borderSide: const BorderSide(color: AppColors.primaryColor),
             ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(23),
+              borderSide: BorderSide(
+                color: Colors.black.withOpacity(0.4),
+              ),
+            ),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
           ),
         ),
       ],
@@ -220,65 +209,43 @@ class _Profile2PageState extends State<Profile2Page> {
   }
 
   Widget _buildDateField(String hintText, int maxLength) {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 5),
-          ),
-        ],
-      ),
-      child: TextFormField(
-        keyboardType: TextInputType.number,
-        maxLength: maxLength,
-        decoration: InputDecoration(
-          counterText: "",
-          hintText: hintText,
-          filled: true,
-          fillColor: Colors.white,
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(23),
-            borderSide: const BorderSide(color: AppColors.primaryColor),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(23),
-          ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+    return TextFormField(
+      keyboardType: TextInputType.number,
+      maxLength: maxLength,
+      decoration: InputDecoration(
+        counterText: "",
+        hintText: hintText,
+        filled: true,
+        fillColor: Colors.white,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(23),
+          borderSide: const BorderSide(color: AppColors.primaryColor),
         ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(23),
+        ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 12),
       ),
     );
   }
 
   Widget _buildAboutField() {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 5),
-          ),
-        ],
-      ),
-      child: TextFormField(
-        maxLines: 8,
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: Colors.white,
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(23),
-            borderSide: const BorderSide(color: AppColors.primaryColor),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(23),
-            borderSide: BorderSide(
-              color: Colors.black.withOpacity(0.4),
-            ),
-          ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+    return TextFormField(
+      maxLines: 8,
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(23),
+          borderSide: const BorderSide(color: AppColors.primaryColor),
         ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(23),
+          borderSide: BorderSide(
+            color: Colors.black.withOpacity(0.4),
+          ),
+        ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       ),
     );
   }
