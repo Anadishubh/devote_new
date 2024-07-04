@@ -1,4 +1,3 @@
-import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:devotee_matrimony/constants/button_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:devotee_matrimony/constants/color_constant.dart';

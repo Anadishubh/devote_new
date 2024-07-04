@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: const EdgeInsets.only(left: 26.0, right: 26),
                 child: CustomButton(
-                  text: 'LOGIN WITH Email or Mobile',
+                  text: 'Login with Email or Mobile',
                   onPressed: () {
                     Get.offAndToNamed('/mobile');
                   },

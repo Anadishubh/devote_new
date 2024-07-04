@@ -5,7 +5,7 @@ import '../constants/color_constant.dart';
 import '../constants/font_constant.dart';
 
 class Otp extends StatefulWidget {
-  const Otp({Key? key}) : super(key: key);
+  const Otp({super.key});
 
   @override
   State<Otp> createState() => _OtpState();

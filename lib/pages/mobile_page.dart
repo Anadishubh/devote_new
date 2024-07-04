@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MobilePage extends StatefulWidget {
-  const MobilePage({Key? key}) : super(key: key);
+  const MobilePage({super.key});
 
   @override
   State<MobilePage> createState() => _MobilePageState();
