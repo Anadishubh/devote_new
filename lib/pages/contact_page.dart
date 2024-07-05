@@ -32,34 +32,32 @@ class _ContactPageState extends State<ContactPage> {
           },
         ),
       ),
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Container(
-              height: screenHeight * 0.4,
-              width: screenWidth,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/bg3.png'),
-                  fit: BoxFit.cover,
-                ),
+      body: Stack(
+        children: [
+          Container(
+            height: screenHeight * 0.45,
+            width: screenWidth,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/bg3.png'),
+                fit: BoxFit.cover,
               ),
             ),
-            Positioned(
-              top: 40,
-              left: screenWidth * 0.35,
-              right: screenWidth * 0.35,
-              child: Image.asset('assets/images/contact.png'),
-            ),
-            Padding(
+          ),
+          SingleChildScrollView(
+            child: Padding(
               padding: EdgeInsets.only(
-                top: screenHeight * 0.2,
+                top: screenHeight * 0.09,
                 left: 22,
                 right: 22,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Center(
+                    child: Image.asset('assets/images/contact.png'),
+                  ),
+                  const SizedBox(height: 40),
                   _buildFormField('Phone number*'),
                   const SizedBox(height: 15),
                   _buildFormField('Email address*'),
@@ -71,7 +69,7 @@ class _ContactPageState extends State<ContactPage> {
                     child: CustomButton(
                       text: 'CONTINUE',
                       onPressed: () {
-                        Get.offAndToNamed('/education');
+                        Get.offAndToNamed('/location');
                       },
                       color: AppColors.primaryColor,
                       textStyle: FontConstant.styleRegular(
@@ -81,12 +79,23 @@ class _ContactPageState extends State<ContactPage> {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  _buildSkipButton(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                    child: CustomButton(
+                      text: 'Skip',
+                      onPressed: () {
+                        Get.offAndToNamed('/dashboard');
+                      },
+                      color: Colors.transparent,
+                      textStyle: FontConstant.styleRegular(
+                          fontSize: 20, color: Colors.black),
+                    ),
+                  )
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -118,20 +127,6 @@ class _ContactPageState extends State<ContactPage> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildSkipButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      child: CustomButton(
-        text: 'Skip',
-        onPressed: () {
-          Get.offAndToNamed('/dashboard');
-        },
-        color: Colors.transparent,
-        textStyle: FontConstant.styleRegular(fontSize: 20, color: Colors.black),
-      ),
     );
   }
 }

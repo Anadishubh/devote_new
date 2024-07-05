@@ -69,7 +69,7 @@ class _OccupationState extends State<Occupation> {
                     )),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: CustomTextField(controller: occupation),
+                  child: CustomTextField(controller: occupation, maxline: null, labelText: '',),
                 ),
                 Container(
                     padding: const EdgeInsets.only(bottom: 5),
@@ -81,7 +81,7 @@ class _OccupationState extends State<Occupation> {
                     )),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: CustomTextField(controller: currentjoblocation),
+                  child: CustomTextField(controller: currentjoblocation, maxline: null, labelText: '',),
                 ),
                 Container(
                     padding: const EdgeInsets.only(bottom: 5),
@@ -93,7 +93,7 @@ class _OccupationState extends State<Occupation> {
                     )),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: CustomTextField(controller: companyname),
+                  child: CustomTextField(controller: companyname, maxline: null, labelText: '',),
                 ),
                 Container(
                     padding: const EdgeInsets.only(bottom: 5),
@@ -105,7 +105,7 @@ class _OccupationState extends State<Occupation> {
                     )),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: CustomTextField(controller: currentjob),
+                  child: CustomTextField(controller: currentjob, maxline: null, labelText: '',),
                 ),
                 Container(
                     padding: const EdgeInsets.only(bottom: 5),
@@ -117,7 +117,7 @@ class _OccupationState extends State<Occupation> {
                     )),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: CustomTextField(controller: workexperience),
+                  child: CustomTextField(controller: workexperience, maxline: null, labelText: '',),
                 ),
                 Container(
                     padding: const EdgeInsets.only(bottom: 5),
@@ -129,7 +129,7 @@ class _OccupationState extends State<Occupation> {
                     )),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: CustomTextField(controller: currentctc),
+                  child: CustomTextField(controller: currentctc, maxline: null, labelText: '',),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10, top: 10),

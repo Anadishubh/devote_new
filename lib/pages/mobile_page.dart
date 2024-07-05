@@ -1,3 +1,4 @@
+import 'package:devotee_matrimony/constants/CustomTextFeild.dart';
 import 'package:devotee_matrimony/constants/button_constant.dart';
 import 'package:devotee_matrimony/constants/color_constant.dart';
 import 'package:devotee_matrimony/constants/font_constant.dart';
@@ -12,6 +13,14 @@ class MobilePage extends StatefulWidget {
 }
 
 class _MobilePageState extends State<MobilePage> {
+  TextEditingController number = TextEditingController();
+
+  @override
+  void dispose() {
+    number.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -63,22 +72,9 @@ class _MobilePageState extends State<MobilePage> {
                   const SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        fillColor: Colors.white,
-                        filled: true,
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(23),
-                          borderSide:
-                          const BorderSide(color: AppColors.primaryColor),
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(23),
-                        ),
-                        contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12),
-                      ),
-                    ),
+                    child: CustomTextField(
+                      controller:number, labelText: '' ,
+                    )
                   ),
                   const SizedBox(height: 20),
                   Padding(

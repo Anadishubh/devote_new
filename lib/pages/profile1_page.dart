@@ -18,14 +18,16 @@ class _Profile1PageState extends State<Profile1Page> {
 
   Widget buildToggleItem(String text, {bool isGender = false, required int index}) {
     return GestureDetector(
-      onTap: () => setState(() {
-        if (isGender) {
-          _selectedIndex1 = index;
-        } else {
-          _selectedIndex = index;
-          _selectedIndex1 = -1;
-        }
-      }),
+      onTap: () => setState(
+            () {
+          if (isGender) {
+            _selectedIndex1 = index;
+          } else {
+            _selectedIndex = index;
+            _selectedIndex1 = -1;
+          }
+        },
+      ),
       child: Card(
         color: (isGender ? _selectedIndex1 : _selectedIndex) == index
             ? AppColors.primaryLight
@@ -43,9 +45,7 @@ class _Profile1PageState extends State<Profile1Page> {
               CircleAvatar(
                 backgroundColor: Colors.transparent,
                 radius: 20,
-                child: isGender
-                    ? genders[index].image
-                    : profiles[index].image,
+                child: isGender ? genders[index].image : profiles[index].image,
               ),
               const SizedBox(height: 8),
               Text(
@@ -60,7 +60,6 @@ class _Profile1PageState extends State<Profile1Page> {
     );
   }
 
-  // Widget to build gender selection grid
   Widget buildGenderSelection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,8 +92,8 @@ class _Profile1PageState extends State<Profile1Page> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -106,16 +105,20 @@ class _Profile1PageState extends State<Profile1Page> {
           style: FontConstant.styleMedium(fontSize: 20, color: Colors.white),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: screenWidth * 0.2),
-              child: const Image(
+      body: Stack(
+        children: [
+          Container(
+            height: screenHeight * 0.45,
+            width: screenWidth,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
                 image: AssetImage('assets/images/bg3.png'),
+                fit: BoxFit.cover,
               ),
             ),
-            Container(
+          ),
+          SingleChildScrollView(
+            child: Container(
               height: screenHeight,
               padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 18),
               child: Column(
@@ -162,8 +165,8 @@ class _Profile1PageState extends State<Profile1Page> {
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

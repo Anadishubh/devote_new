@@ -3,6 +3,8 @@ import 'package:devotee_matrimony/pages/dashboard.dart';
 import 'package:devotee_matrimony/pages/devotion_details.dart';
 import 'package:devotee_matrimony/pages/education_page.dart';
 import 'package:devotee_matrimony/pages/family_page.dart';
+import 'package:devotee_matrimony/pages/horoscope_details.dart';
+import 'package:devotee_matrimony/pages/location.dart';
 import 'package:devotee_matrimony/pages/login_page.dart';
 import 'package:devotee_matrimony/pages/mobile_page.dart';
 import 'package:devotee_matrimony/pages/occupation.dart';
@@ -15,6 +17,7 @@ import 'package:devotee_matrimony/pages/profile_complete.dart';
 import 'package:devotee_matrimony/pages/profile_details_girl.dart';
 import 'package:devotee_matrimony/pages/search_page.dart';
 import 'package:devotee_matrimony/pages/search_result.dart';
+import 'package:devotee_matrimony/pages/spritual_councellor.dart';
 import 'package:get/get.dart';
 import '../pages/splash_screen.dart';
 
@@ -37,6 +40,9 @@ class AppRoutes {
   static const String contact = '/contact';
   static const String professional = '/prof';
   static const String devotion = '/devotion';
+  static const String location = '/location';
+  static const String spirit = '/spirit';
+  static const String horoscope = '/horo';
 
 
   static final List<GetPage> routes = [
@@ -145,6 +151,24 @@ class AppRoutes {
     GetPage(
       name: devotion,
       page: () => const DevotionDetails(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 400),
+    ),
+    GetPage(
+      name: location,
+      page: () => const Location(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 400),
+    ),
+    GetPage(
+      name: spirit,
+      page: () => const SpiritualDetails(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 400),
+    ),
+    GetPage(
+      name: horoscope,
+      page: () => const HoroscopeDetails(),
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 400),
     ),

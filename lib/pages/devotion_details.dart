@@ -60,94 +60,88 @@ class _DevotionDetailsState extends State<DevotionDetails> {
           },
         ),
       ),
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Container(
-              height: screenHeight * 0.4,
-              width: screenWidth,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/bg3.png'),
-                  fit: BoxFit.cover,
-                ),
+      body: Stack(
+        children: [
+          Container(
+            height: screenHeight * 0.45,
+            width: screenWidth,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/bg3.png'),
+                fit: BoxFit.cover,
               ),
             ),
-            Positioned(
-              top: 25,
-              left: screenWidth * 0.32,
-              right: screenWidth * 0.32,
-              child: Image.asset('assets/images/hands.png'),
-            ),
-            Padding(
+          ),
+          SingleChildScrollView(
+            child: Padding(
               padding: EdgeInsets.only(
-                top: screenHeight * 0.2,
+                top: screenHeight * 0.04,
                 left: 22,
                 right: 22,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 8),
+                  Center(
+                    child: Image.asset('assets/images/hands.png'),
+                  ),
+                  const SizedBox(height: 25),
                   _buildFormField(
-                      labelText: 'Something about your Devotional life',
-                      hintText: null,
-                      maxLines: 5),
+                    labelText: 'Something about your Devotional life',
+                    hintText: null,
+                    maxLines: 5,
+                  ),
                   const SizedBox(height: 10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 10),
-                      Column(
-                        children: iskonOptions.map((option) {
-                          return Row(
-                            children: [
-                              Checkbox(
-                                fillColor:
-                                    WidgetStateProperty.all(Colors.white),
-                                checkColor: AppColors.primaryColor,
-                                value: selectedIskonOption == option,
-                                onChanged: (bool? value) {
-                                  setState(
-                                    () {
-                                      if (value ?? false) {
-                                        selectedIskonOption = option;
-                                        showTempleFields = option ==
-                                            'Already Connected with ISKCON';
-                                      } else {
-                                        selectedIskonOption = null;
-                                        showTempleFields = false;
-                                      }
-                                    },
-                                  );
-                                },
-                              ),
-                              const SizedBox(width: 8),
-                              Text(
-                                option,
-                                style: FontConstant.styleRegular(
-                                    fontSize: 16, color: Colors.black),
-                              ),
-                            ],
-                          );
-                        }).toList(),
-                      ),
-                    ],
+                    children: iskonOptions.map((option) {
+                      return Row(
+                        children: [
+                          Checkbox(
+                            fillColor: WidgetStateProperty.all(Colors.white),
+                            checkColor: AppColors.primaryColor,
+                            value: selectedIskonOption == option,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                if (value ?? false) {
+                                  selectedIskonOption = option;
+                                  showTempleFields =
+                                      option == 'Already Connected with ISKCON';
+                                } else {
+                                  selectedIskonOption = null;
+                                  showTempleFields = false;
+                                }
+                              });
+                            },
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            option,
+                            style: FontConstant.styleRegular(
+                                fontSize: 16, color: Colors.black),
+                          ),
+                        ],
+                      );
+                    }).toList(),
                   ),
                   if (showTempleFields) ...[
                     const SizedBox(height: 20),
                     Column(
                       children: [
                         _buildFormField(
-                            labelText: 'Which temple are you connected to?*',
-                            hintText: 'Name of the temple'),
+                          labelText: 'Which temple are you connected to?*',
+                          hintText: 'Name of the temple',
+                        ),
                         const SizedBox(height: 1),
                         _buildFormField(
-                            labelText: null, hintText: 'City of temple'),
+                          labelText: null,
+                          hintText: 'City of temple',
+                        ),
                         const SizedBox(height: 1),
                         _buildFormField(
-                            labelText: null,
-                            hintText: 'I am doing worship in my home only'),
+                          labelText: null,
+                          hintText: 'I am doing worship in my home only',
+                        ),
                       ],
                     ),
                   ],
@@ -187,14 +181,12 @@ class _DevotionDetailsState extends State<DevotionDetails> {
                   _buildContinueButton(),
                   const SizedBox(height: 15),
                   _buildSkipButton(),
-                  const SizedBox(
-                    height: 25,
-                  ),
+                  const SizedBox(height: 25),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -230,7 +222,7 @@ class _DevotionDetailsState extends State<DevotionDetails> {
               ),
             ),
             contentPadding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           ),
         ),
       ],
@@ -243,7 +235,7 @@ class _DevotionDetailsState extends State<DevotionDetails> {
       child: CustomButton(
         text: 'CONTINUE',
         onPressed: () {
-          Get.offAndToNamed('/prof');
+          Get.offAndToNamed('/spirit');
         },
         color: AppColors.primaryColor,
         textStyle: FontConstant.styleRegular(fontSize: 20, color: Colors.white),

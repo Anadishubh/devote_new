@@ -20,7 +20,7 @@ class _ProfessionalDetailsPageState extends State<ProfessionalDetailsPage> {
   @override
   Widget build(BuildContext context) {
     QualificationController qualificationController =
-        Get.put(QualificationController());
+    Get.put(QualificationController());
 
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
@@ -40,35 +40,32 @@ class _ProfessionalDetailsPageState extends State<ProfessionalDetailsPage> {
           },
         ),
       ),
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Container(
-              height: screenHeight * 0.45,
-              width: screenWidth,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/bg3.png'),
-                  fit: BoxFit.cover,
-                ),
+      body: Stack(
+        children: [
+          Container(
+            height: screenHeight * 0.45,
+            width: screenWidth,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/bg3.png'),
+                fit: BoxFit.cover,
               ),
             ),
-            Positioned(
-              top: 25,
-              left: screenWidth * 0.35,
-              right: screenWidth * 0.35,
-              child: Image.asset('assets/images/occupation.png'),
-            ),
-            Padding(
+          ),
+          SingleChildScrollView(
+            child: Padding(
               padding: EdgeInsets.only(
-                top: screenHeight * 0.18,
+                top: screenHeight * 0.04,
                 left: 22,
                 right: 22,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 8),
+                  Center(
+                    child: Image.asset('assets/images/occupation.png'),
+                  ),
+                  const SizedBox(height: 25),
                   buildDropdown(
                     'Title of the profession',
                     QualificationController.qualifications(),
@@ -119,9 +116,7 @@ class _ProfessionalDetailsPageState extends State<ProfessionalDetailsPage> {
                   _buildFormField('Working city'),
                   const SizedBox(height: 15),
                   _buildFormField('Work experience'),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  const SizedBox(height: 15),
                   Text(
                     'Income earning range (in a year)',
                     style: FontConstant.styleRegular(
@@ -137,9 +132,7 @@ class _ProfessionalDetailsPageState extends State<ProfessionalDetailsPage> {
                           hintText: 'Range from',
                         ),
                       ),
-                      const SizedBox(
-                        width: 10,
-                      ),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: buildDropdown(
                           null,
@@ -158,8 +151,8 @@ class _ProfessionalDetailsPageState extends State<ProfessionalDetailsPage> {
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

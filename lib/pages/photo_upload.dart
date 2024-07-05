@@ -29,7 +29,7 @@ class _PhotoUploadState extends State<PhotoUpload> {
         leading: IconButton(
           icon: Image.asset('assets/images/icons/arrow.png'),
           onPressed: () {
-            Get.offAndToNamed('/occupation');
+            Get.offAndToNamed('/horo');
           },
         ),
       ),

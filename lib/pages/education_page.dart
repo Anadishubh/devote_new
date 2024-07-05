@@ -1,3 +1,4 @@
+import 'package:devotee_matrimony/constants/CustomTextFeild.dart';
 import 'package:devotee_matrimony/constants/custom_dropdown.dart';
 import 'package:devotee_matrimony/constants/profile_constant.dart';
 import 'package:flutter/material.dart';
@@ -33,118 +34,80 @@ class _EducationPageState extends State<EducationPage> {
         leading: IconButton(
           icon: Image.asset('assets/images/icons/arrow.png'),
           onPressed: () {
-            Get.offAndToNamed('/contact');
+            Get.offAndToNamed('/location');
           },
         ),
       ),
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Container(
-              height: screenHeight * 0.4,
-              width: screenWidth,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/bg3.png'),
-                  fit: BoxFit.cover,
-                ),
+      body: Stack(
+        children: [
+          Container(
+            height: screenHeight * 0.45,
+            width: screenWidth,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/bg3.png'),
+                fit: BoxFit.cover,
               ),
             ),
-            Positioned(
-              top: 25,
-              left: screenWidth * 0.35,
-              right: screenWidth * 0.35,
-              child: Image.asset('assets/images/education.png'),
-            ),
-            Padding(
+          ),
+          SingleChildScrollView(
+            child: Padding(
               padding: EdgeInsets.only(
-                top: screenHeight * 0.2,
+                top: screenHeight * 0.04,
                 left: 22,
                 right: 22,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 8),
+                  Center(
+                    child: Image.asset('assets/images/education.png'),
+                  ),
+                  const SizedBox(height: 25),
                   buildDropdown(
-                      'Highest Qualification*',
-                      QualificationController.qualifications(),
-                      qualificationController.selectedItem.call, hintText: 'Choose'),
+                    'Highest Qualification*',
+                    QualificationController.qualifications(),
+                    qualificationController.selectedItem.call,
+                    hintText: 'Choose',
+                  ),
                   const SizedBox(height: 15),
-                  _buildFormField('College/Institution name'),
+                  CustomTextField(labelText: 'College/Institution name'),
                   const SizedBox(height: 15),
-                  _buildFormField('Describe other details(if any)',maxLines: 6),
-                  // _buildSectionTitle('Describe other details(if any)'),
-                  const SizedBox(height: 8),
-                  // _buildTextAreaField(),
+                  CustomTextField(
+                    labelText: 'Describe other details(if any)',
+                    maxlength: 6,
+                  ),
                   const SizedBox(height: 30),
-                  _buildContinueButton(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                    child: CustomButton(
+                      text: 'CONTINUE',
+                      onPressed: () {
+                        Get.offAndToNamed('/prof');
+                      },
+                      color: AppColors.primaryColor,
+                      textStyle: FontConstant.styleRegular(
+                          fontSize: 20, color: Colors.white),
+                    ),
+                  ),
                   const SizedBox(height: 15),
-                  _buildSkipButton(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                    child: CustomButton(
+                      text: 'Skip',
+                      onPressed: () {
+                        Get.offAndToNamed('/dashboard');
+                      },
+                      color: Colors.transparent,
+                      textStyle: FontConstant.styleRegular(
+                          fontSize: 20, color: Colors.black),
+                    ),
+                  ),
                 ],
               ),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildFormField(String labelText, {int maxLines = 1}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          labelText,
-          style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
-        ),
-        const SizedBox(height: 8),
-        TextFormField(
-          maxLines: maxLines,
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(23),
-              borderSide: const BorderSide(color: AppColors.primaryColor),
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(23),
-              borderSide: BorderSide(
-                color: Colors.black.withOpacity(0.4),
-              ),
-            ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
           ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildContinueButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      child: CustomButton(
-        text: 'CONTINUE',
-        onPressed: () {
-          Get.offAndToNamed('/prof');
-        },
-        color: AppColors.primaryColor,
-        textStyle: FontConstant.styleRegular(fontSize: 20, color: Colors.white),
-      ),
-    );
-  }
-
-  Widget _buildSkipButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      child: CustomButton(
-        text: 'Skip',
-        onPressed: () {
-          Get.offAndToNamed('/dashboard');
-        },
-        color: Colors.transparent,
-        textStyle: FontConstant.styleRegular(fontSize: 20, color: Colors.black),
+        ],
       ),
     );
   }
