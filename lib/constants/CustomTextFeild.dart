@@ -1,11 +1,10 @@
 import 'package:devotee_matrimony/constants/color_constant.dart';
 import 'package:flutter/material.dart';
-
 import 'font_constant.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
-  final String labelText;
+  final String? labelText;
   final String? hintText;
   final int? maxlength;
   final int? maxline;
@@ -19,7 +18,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     this.controller,
-    required this.labelText,
+    this.labelText,
     this.hintText,
     this.maxlength,
     this.obscureText,
@@ -36,11 +35,13 @@ class CustomTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          labelText,
-          style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
-        ),
-        const SizedBox(height: 8),
+        if (labelText != null) ...[
+          Text(
+            labelText!,
+            style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
+          ),
+          const SizedBox(height: 8),
+        ],
         TextFormField(
           controller: controller,
           obscureText: obscureText ?? false,

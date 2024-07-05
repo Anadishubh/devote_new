@@ -50,7 +50,7 @@ class _HoroscopeDetailsState extends State<HoroscopeDetails> {
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 15),
+                    margin: const EdgeInsets.only(top: 15),
                     alignment: Alignment.center,
                     child: Image.asset(
                       "assets/images/horo.png",
@@ -58,7 +58,7 @@ class _HoroscopeDetailsState extends State<HoroscopeDetails> {
                       width: 109,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Row(
@@ -73,7 +73,7 @@ class _HoroscopeDetailsState extends State<HoroscopeDetails> {
                         maxline: null,
                         labelText: 'Date of Birth*',
                       )),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Expanded(
@@ -85,7 +85,7 @@ class _HoroscopeDetailsState extends State<HoroscopeDetails> {
                         maxline: null,
                         labelText: '',
                       )),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Expanded(
@@ -100,7 +100,7 @@ class _HoroscopeDetailsState extends State<HoroscopeDetails> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   CustomTextField(
@@ -109,14 +109,14 @@ class _HoroscopeDetailsState extends State<HoroscopeDetails> {
                     maxline: null,
                     labelText: 'Time Of Birth',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   CustomTextField(
                     controller: state,
                     labelText: 'State of Birth',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   CustomTextField(
@@ -135,8 +135,8 @@ class _HoroscopeDetailsState extends State<HoroscopeDetails> {
                   GestureDetector(
                     onTap: () => {Get.offAndToNamed('/dashboard')},
                     child: Container(
-                      margin: EdgeInsets.only(bottom: 25, top: 10),
-                      padding: EdgeInsets.all(5),
+                      margin: const EdgeInsets.only(bottom: 25, top: 10),
+                      padding: const EdgeInsets.all(5),
                       child: Text(
                         "SKIP",
                         style: FontConstant.styleRegular(

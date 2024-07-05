@@ -1,3 +1,4 @@
+import 'package:devotee_matrimony/constants/CustomTextFeild.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants/button_constant.dart';
@@ -58,11 +59,11 @@ class _ContactPageState extends State<ContactPage> {
                     child: Image.asset('assets/images/contact.png'),
                   ),
                   const SizedBox(height: 40),
-                  _buildFormField('Phone number*'),
+                  const CustomTextField(labelText: 'Phone number*'),
                   const SizedBox(height: 15),
-                  _buildFormField('Email address*'),
+                  const CustomTextField(labelText: 'Email address*'),
                   const SizedBox(height: 15),
-                  _buildFormField('Instagram ID'),
+                  const CustomTextField(labelText: 'Instagram'),
                   const SizedBox(height: 30),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -97,36 +98,6 @@ class _ContactPageState extends State<ContactPage> {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildFormField(String labelText) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          labelText,
-          style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
-        ),
-        const SizedBox(height: 8),
-        TextFormField(
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(23),
-              borderSide: const BorderSide(color: AppColors.primaryColor),
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(23),
-              borderSide: BorderSide(
-                color: Colors.black.withOpacity(0.4),
-              ),
-            ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-          ),
-        ),
-      ],
     );
   }
 }

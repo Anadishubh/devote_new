@@ -61,14 +61,14 @@ class _LocationState extends State<Location> {
                     controller: name,
                     labelText: 'Name of the Counselor for my Spiritual Path',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   CustomTextField(
                     controller: connect,
                     labelText: 'Connected with my Counselor Since - Year',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   CustomTextField(
@@ -76,21 +76,21 @@ class _LocationState extends State<Location> {
                     labelText:
                         'With which temple your counsellor is connected to?"',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   CustomTextField(
                     controller: city,
                     labelText: 'Counselor residing in State',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   CustomTextField(
                     controller: something,
                     labelText: 'Counselor residing in City',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   CustomTextField(

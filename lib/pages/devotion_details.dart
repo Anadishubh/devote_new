@@ -1,3 +1,4 @@
+import 'package:devotee_matrimony/constants/CustomTextFeild.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants/button_constant.dart';
@@ -86,10 +87,9 @@ class _DevotionDetailsState extends State<DevotionDetails> {
                     child: Image.asset('assets/images/hands.png'),
                   ),
                   const SizedBox(height: 25),
-                  _buildFormField(
+                  CustomTextField(
                     labelText: 'Something about your Devotional life',
-                    hintText: null,
-                    maxLines: 5,
+                    maxline: 5,
                   ),
                   const SizedBox(height: 10),
                   Column(
@@ -128,20 +128,18 @@ class _DevotionDetailsState extends State<DevotionDetails> {
                     const SizedBox(height: 20),
                     Column(
                       children: [
-                        _buildFormField(
+                        CustomTextField(
                           labelText: 'Which temple are you connected to?*',
                           hintText: 'Name of the temple',
                         ),
                         const SizedBox(height: 1),
-                        _buildFormField(
-                          labelText: null,
+                        CustomTextField(
                           hintText: 'City of temple',
                         ),
                         const SizedBox(height: 1),
-                        _buildFormField(
-                          labelText: null,
+                        CustomTextField(
                           hintText: 'I am doing worship in my home only',
-                        ),
+                        )
                       ],
                     ),
                   ],
@@ -178,81 +176,37 @@ class _DevotionDetailsState extends State<DevotionDetails> {
                     }).toList(),
                   ),
                   const SizedBox(height: 10),
-                  _buildContinueButton(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                    child: CustomButton(
+                      text: 'CONTINUE',
+                      onPressed: () {
+                        Get.offAndToNamed('/spirit');
+                      },
+                      color: AppColors.primaryColor,
+                      textStyle: FontConstant.styleRegular(
+                          fontSize: 20, color: Colors.white),
+                    ),
+                  ),
                   const SizedBox(height: 15),
-                  _buildSkipButton(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                    child: CustomButton(
+                      text: 'Skip',
+                      onPressed: () {
+                        Get.offAndToNamed('/dashboard');
+                      },
+                      color: Colors.transparent,
+                      textStyle: FontConstant.styleRegular(
+                          fontSize: 20, color: Colors.black),
+                    ),
+                  ),
                   const SizedBox(height: 25),
                 ],
               ),
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildFormField({
-    String? labelText,
-    int maxLines = 1,
-    String? hintText,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (labelText != null)
-          Text(
-            labelText,
-            style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
-          ),
-        const SizedBox(height: 10),
-        TextFormField(
-          maxLines: maxLines,
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            hintText: hintText ?? '',
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(23),
-              borderSide: const BorderSide(color: AppColors.primaryColor),
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(23),
-              borderSide: BorderSide(
-                color: Colors.black.withOpacity(0.4),
-              ),
-            ),
-            contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildContinueButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      child: CustomButton(
-        text: 'CONTINUE',
-        onPressed: () {
-          Get.offAndToNamed('/spirit');
-        },
-        color: AppColors.primaryColor,
-        textStyle: FontConstant.styleRegular(fontSize: 20, color: Colors.white),
-      ),
-    );
-  }
-
-  Widget _buildSkipButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      child: CustomButton(
-        text: 'Skip',
-        onPressed: () {
-          Get.offAndToNamed('/dashboard');
-        },
-        color: Colors.transparent,
-        textStyle: FontConstant.styleRegular(fontSize: 20, color: Colors.black),
       ),
     );
   }

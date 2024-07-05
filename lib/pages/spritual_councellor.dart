@@ -58,32 +58,50 @@ class _SpiritualDetailsState extends State<SpiritualDetails> {
                       width: 92,
                     ),
                   ),
-                  SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   CustomTextField(
                     controller: name,
                     maxline: null,
                     labelText: 'Name of the Counselor for my Spiritual\nPath',
-                  ),SizedBox(height: 15,),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   CustomTextField(
                     controller: connect,
                     maxline: null,
                     labelText: 'Connected with my Counselor Since - Year',
-                  ),SizedBox(height: 15,),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   CustomTextField(
                     controller: state,
                     maxline: null,
-                    labelText: 'With which temple your counsellor is connected to?',
-                  ),SizedBox(height: 15,),
+                    labelText:
+                        'With which temple your counsellor is connected to?',
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   CustomTextField(
                     controller: city,
                     maxline: null,
                     labelText: 'Counselor residing in State',
-                  ),SizedBox(height: 15,),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   CustomTextField(
                     controller: something,
                     maxline: null,
                     labelText: 'Counselor residing in City',
-                  ),SizedBox(height: 15,),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   CustomTextField(
                     maxline: 5,
                     controller: name,

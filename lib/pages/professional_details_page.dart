@@ -1,3 +1,4 @@
+import 'package:devotee_matrimony/constants/CustomTextFeild.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants/button_constant.dart';
@@ -20,7 +21,7 @@ class _ProfessionalDetailsPageState extends State<ProfessionalDetailsPage> {
   @override
   Widget build(BuildContext context) {
     QualificationController qualificationController =
-    Get.put(QualificationController());
+        Get.put(QualificationController());
 
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
@@ -109,13 +110,21 @@ class _ProfessionalDetailsPageState extends State<ProfessionalDetailsPage> {
                     ],
                   ),
                   const SizedBox(height: 15),
-                  _buildFormField('Company name'),
+                  const CustomTextField(
+                    labelText: 'Company name',
+                  ),
                   const SizedBox(height: 15),
-                  _buildFormField('Working State'),
+                  const CustomTextField(
+                    labelText: 'Working State',
+                  ),
                   const SizedBox(height: 15),
-                  _buildFormField('Working city'),
+                  const CustomTextField(
+                    labelText: 'Working city',
+                  ),
                   const SizedBox(height: 15),
-                  _buildFormField('Work experience'),
+                  const CustomTextField(
+                    labelText: 'Work experience',
+                  ),
                   const SizedBox(height: 15),
                   Text(
                     'Income earning range (in a year)',
@@ -144,74 +153,37 @@ class _ProfessionalDetailsPageState extends State<ProfessionalDetailsPage> {
                     ],
                   ),
                   const SizedBox(height: 30),
-                  _buildContinueButton(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                    child: CustomButton(
+                      text: 'CONTINUE',
+                      onPressed: () {
+                        Get.offAndToNamed('/devotion');
+                      },
+                      color: AppColors.primaryColor,
+                      textStyle: FontConstant.styleRegular(
+                          fontSize: 20, color: Colors.white),
+                    ),
+                  ),
                   const SizedBox(height: 15),
-                  _buildSkipButton(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                    child: CustomButton(
+                      text: 'Skip',
+                      onPressed: () {
+                        Get.offAndToNamed('/dashboard');
+                      },
+                      color: Colors.transparent,
+                      textStyle: FontConstant.styleRegular(
+                          fontSize: 20, color: Colors.black),
+                    ),
+                  ),
                   const SizedBox(height: 15),
                 ],
               ),
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildFormField(String? labelText) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (labelText != null)
-          Text(
-            labelText,
-            style: FontConstant.styleRegular(fontSize: 16, color: Colors.black),
-          ),
-        const SizedBox(height: 8),
-        TextFormField(
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(23),
-              borderSide: const BorderSide(color: AppColors.primaryColor),
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(23),
-              borderSide: BorderSide(
-                color: Colors.black.withOpacity(0.4),
-              ),
-            ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildContinueButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      child: CustomButton(
-        text: 'CONTINUE',
-        onPressed: () {
-          Get.offAndToNamed('/devotion');
-        },
-        color: AppColors.primaryColor,
-        textStyle: FontConstant.styleRegular(fontSize: 20, color: Colors.white),
-      ),
-    );
-  }
-
-  Widget _buildSkipButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      child: CustomButton(
-        text: 'Skip',
-        onPressed: () {
-          Get.offAndToNamed('/dashboard');
-        },
-        color: Colors.transparent,
-        textStyle: FontConstant.styleRegular(fontSize: 20, color: Colors.black),
       ),
     );
   }
