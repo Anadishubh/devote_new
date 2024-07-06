@@ -59,34 +59,34 @@ class _FamilyPageState extends State<FamilyPage> {
                   child: Column(
                     children: [
                       const SizedBox(height: 20),
-                      CustomTextField(labelText: 'Mother Full Name'),
+                      const CustomTextField(labelText: 'Mother Full Name'),
                       const SizedBox(height: 20),
-                      CustomTextField(labelText: 'Mother occupation'),
+                      const CustomTextField(labelText: 'Mother occupation'),
                       const SizedBox(height: 20),
-                      CustomTextField(labelText: 'Father Full Name'),
+                      const CustomTextField(labelText: 'Father Full Name'),
                       const SizedBox(height: 20),
-                      CustomTextField(labelText: 'Father occupation'),
+                      const CustomTextField(labelText: 'Father occupation'),
                       const SizedBox(height: 20),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
                             child: CustomTextField(labelText: 'Elder Brothers',),
                           ),
-                          const SizedBox(width: 20),
+                          SizedBox(width: 20),
                           Expanded(
                             child: CustomTextField(labelText: 'Younger Brothers'),
                           ),
                         ],
                       ),
                       const SizedBox(height: 20),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
                             child: CustomTextField(labelText: 'Elder Sisters'),
                           ),
-                          const SizedBox(width: 20),
+                          SizedBox(width: 20),
                           Expanded(
                             child: CustomTextField(labelText: 'Younger Sisters'),
                           ),

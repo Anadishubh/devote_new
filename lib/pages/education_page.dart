@@ -71,9 +71,9 @@ class _EducationPageState extends State<EducationPage> {
                     hintText: 'Choose',
                   ),
                   const SizedBox(height: 15),
-                  CustomTextField(labelText: 'College/Institution name'),
+                  const CustomTextField(labelText: 'College/Institution name'),
                   const SizedBox(height: 15),
-                  CustomTextField(
+                  const CustomTextField(
                     labelText: 'Describe other details(if any)',
                     maxlength: 6,
                   ),

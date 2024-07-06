@@ -127,7 +127,7 @@ class _HoroscopeDetailsState extends State<HoroscopeDetails> {
                     padding: const EdgeInsets.only(top: 35, bottom: 15),
                     child: CustomButton(
                         text: "CONTINUE",
-                        onPressed: () => {Get.toNamed('/photo')},
+                        onPressed: () => {Get.offAndToNamed('/photo')},
                         color: AppColors.primaryColor,
                         textStyle: FontConstant.styleRegular(
                             fontSize: 20, color: AppColors.constColor)),

@@ -87,7 +87,7 @@ class _DevotionDetailsState extends State<DevotionDetails> {
                     child: Image.asset('assets/images/hands.png'),
                   ),
                   const SizedBox(height: 25),
-                  CustomTextField(
+                  const CustomTextField(
                     labelText: 'Something about your Devotional life',
                     maxline: 5,
                   ),
@@ -126,17 +126,17 @@ class _DevotionDetailsState extends State<DevotionDetails> {
                   ),
                   if (showTempleFields) ...[
                     const SizedBox(height: 20),
-                    Column(
+                    const Column(
                       children: [
                         CustomTextField(
                           labelText: 'Which temple are you connected to?*',
                           hintText: 'Name of the temple',
                         ),
-                        const SizedBox(height: 1),
+                        SizedBox(height: 1),
                         CustomTextField(
                           hintText: 'City of temple',
                         ),
-                        const SizedBox(height: 1),
+                        SizedBox(height: 1),
                         CustomTextField(
                           hintText: 'I am doing worship in my home only',
                         )
