@@ -14,241 +14,129 @@ class _UserProfileState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryLight,
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        elevation: 0,
+        automaticallyImplyLeading: false,
         backgroundColor: AppColors.primaryColor,
         title: Text(
-          "Profile",
-          style: FontConstant.styleSemiBold(
-              fontSize: 18, color: AppColors.constColor),
+          'Profile',
+          style: FontConstant.styleSemiBold(fontSize: 18, color: Colors.white),
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Container(
-                  height: 250,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [AppColors.primaryColor, Colors.green],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
+            Container(
+              width: double.infinity,
+              height: 200,
+              color: Colors.white,
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 20,
                   ),
-                  child: Image.asset(
-                    "assets/images/hero.jpg",
-                    fit: BoxFit.cover,
+                  CircleAvatar(
+                    radius: 60,
+                    backgroundColor: Colors.grey[200],
+                    child:
+                        Icon(Icons.person, size: 80, color: Colors.grey[400]),
                   ),
-                ),
-                Positioned(
-                  top: 180,
-                  left: 15,
-                  right: 15,
-                  child: Container(
-                    height: 120,
-                    width: double.infinity,
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('+ Add Image',
+                        style: TextStyle(color: Colors.purple)),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              color: Colors.transparent,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
                     decoration: BoxDecoration(
-                      color: AppColors.constColor,
-                      border: Border.all(color: Colors.grey.shade200),
-                      borderRadius: const BorderRadius.all(Radius.circular(10)),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          spreadRadius: 3,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
+                      border: Border(
+                          bottom: BorderSide()
+                      )
                     ),
+                    height: 50,
                     child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ClipRRect(
-                            borderRadius: const BorderRadius.all(Radius.circular(50)),
-                            child: Image.asset(
-                              "assets/images/hero.jpg",
-                              fit: BoxFit.cover,
-                              height: 80,
-                              width: 80,
-                            ),
-                          ),
+                        Icon(
+                          Icons.phone_android,
+                          color: Colors.orange,
                         ),
-                        const SizedBox(width: 10),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Raghu Nath",
-                              style: FontConstant.styleMedium(
-                                  fontSize: 16, color: Colors.black),
-                            ),
-                            Text(
-                              "ID-090382",
-                              style: FontConstant.styleRegular(
-                                  fontSize: 14, color: Colors.grey),
-                            ),
-                            Text(
-                              "You are a subscribed user",
-                              style: FontConstant.styleRegular(
-                                  fontSize: 14, color: Colors.grey),
-                            ),
-                            const SizedBox(height: 5),
-                            Container(
-                              alignment: Alignment.center,
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 5),
-                              decoration: const BoxDecoration(
-                                color: AppColors.primaryColor,
-                                borderRadius: BorderRadius.all(Radius.circular(20)),
-                              ),
-                              child: Text(
-                                "Upgrade Plan",
-                                style: FontConstant.styleSemiBold(
-                                    fontSize: 14, color: AppColors.constColor),
-                              ),
-                            ),
-                          ],
-                        )
+                        Text(
+                          'Edit Mobile No.',
+                          style: FontConstant.styleRegular(
+                              fontSize: 16, color: Colors.black),
+                        ),
                       ],
                     ),
                   ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 60, left: 15, right: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  buildProfileOption(
-                    icon: Icons.people,
-                    label: "Matches",
-                    onTap: () {},
-                  ),
-                  buildProfileOption(
-                    icon: Icons.thumb_up,
-                    label: "Shortlisted",
-                    onTap: () {},
-                  ),
-                  buildProfileOption(
-                    icon: Icons.person,
-                    label: "Profile View",
-                    onTap: () {},
-                  ),
-                  buildProfileOption(
-                    icon: Icons.message,
-                    label: "Chats",
-                    onTap: () {},
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border(
+                        left: BorderSide(),
+                      ),
+                    ),
+                    height: 50,
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.email,
+                          color: Colors.orange,
+                        ),
+                        Text(
+                          'Edit Email ID',
+                          style: FontConstant.styleRegular(
+                              fontSize: 16, color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 20),
-            buildListTile(
-              icon: Icons.notifications,
-              label: "Notification",
-              onTap: () {},
+            const Text('Your profile is 40% Complete'),
+            LinearProgressIndicator(
+              value: 0.4,
+              backgroundColor: Colors.grey[200],
+              valueColor: const AlwaysStoppedAnimation<Color>(Colors.purple),
             ),
-            buildListTile(
-              icon: Icons.subtitles,
-              label: "Subscription Plans",
-              onTap: () {},
+            const Padding(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                'Make your profile 100% complete by adding below details and get more responses.',
+                textAlign: TextAlign.center,
+              ),
             ),
-            buildListTile(
-              icon: Icons.settings,
-              label: "Settings",
-              onTap: () {},
+            const ListTile(
+              title: Text('Basic Details'),
+              trailing: Icon(Icons.edit, color: Colors.pink),
             ),
-            buildListTile(
-              icon: Icons.terminal,
-              label: "Term & Condition",
-              onTap: () {},
-            ),
-            buildListTile(
-              icon: Icons.logout,
-              label: "Logout",
-              onTap: () {
-                Get.offAndToNamed('/login');
-              },
-            ),
+            _buildDetailRow('Posted by', 'Self'),
+            _buildDetailRow('Title', 'Mr'),
+            _buildDetailRow('Name', 'Harpreet Singh'),
+            _buildDetailRow('Surname', 'Rayat'),
+            _buildDetailRow('Date of Birth', '05 July 2025'),
           ],
         ),
       ),
     );
   }
 
-  Widget buildProfileOption({required IconData icon, required String label, required Function onTap}) {
-    return InkWell(
-      onTap: () => onTap(),
-      child: Column(
+  Widget _buildDetailRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            alignment: Alignment.center,
-            height: 60,
-            width: 60,
-            decoration: BoxDecoration(
-              color: AppColors.constColor,
-              shape: BoxShape.circle,
-              border: Border.all(color: Colors.grey.shade200),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  spreadRadius: 3,
-                  blurRadius: 5,
-                  offset: const Offset(0, 3),
-                ),
-              ],
-            ),
-            child: Icon(
-              icon,
-              color: AppColors.primaryColor,
-              size: 30,
-            ),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            label,
-            style: FontConstant.styleSemiBold(
-                fontSize: 14, color: AppColors.black),
-          ),
+          Text(label),
+          Text(value),
         ],
-      ),
-    );
-  }
-
-  Widget buildListTile({required IconData icon, required String label, required Function onTap}) {
-    return InkWell(
-      onTap: () => onTap(),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-        child: Row(
-          children: [
-            Icon(
-              icon,
-              color: AppColors.primaryColor,
-              size: 30,
-            ),
-            const SizedBox(width: 15),
-            Text(
-              label,
-              style: FontConstant.styleSemiBold(
-                  fontSize: 16, color: AppColors.black),
-            ),
-            const Spacer(),
-            const Icon(
-              Icons.arrow_forward_ios,
-              color: AppColors.primaryColor,
-              size: 20,
-            ),
-          ],
-        ),
       ),
     );
   }
