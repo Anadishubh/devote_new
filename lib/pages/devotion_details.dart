@@ -89,7 +89,7 @@ class _DevotionDetailsState extends State<DevotionDetails> {
                   const SizedBox(height: 25),
                   const CustomTextField(
                     labelText: 'Something about your Devotional life',
-                    maxline: 5,
+                    maxline: 4,
                   ),
                   const SizedBox(height: 10),
                   Column(
@@ -132,14 +132,10 @@ class _DevotionDetailsState extends State<DevotionDetails> {
                           labelText: 'Which temple are you connected to?*',
                           hintText: 'Name of the temple',
                         ),
-                        SizedBox(height: 1),
+                        SizedBox(height: 10),
                         CustomTextField(
                           hintText: 'City of temple',
                         ),
-                        SizedBox(height: 1),
-                        CustomTextField(
-                          hintText: 'I am doing worship in my home only',
-                        )
                       ],
                     ),
                   ],

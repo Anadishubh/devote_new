@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 import '../constants/CustomTextFeild.dart';
 import '../constants/button_constant.dart';
 import '../constants/color_constant.dart';
+import '../constants/custom_dropdown.dart';
 import '../constants/font_constant.dart';
+import '../constants/profile_constant.dart';
 
 class SpiritualDetails extends StatefulWidget {
   const SpiritualDetails({super.key});
@@ -19,6 +21,7 @@ class _SpiritualDetailsState extends State<SpiritualDetails> {
   TextEditingController state = TextEditingController();
   TextEditingController city = TextEditingController();
   TextEditingController something = TextEditingController();
+  StateController stateController = Get.put(StateController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +67,7 @@ class _SpiritualDetailsState extends State<SpiritualDetails> {
                   CustomTextField(
                     controller: name,
                     maxline: null,
-                    labelText: 'Name of the Counselor for my Spiritual\nPath',
+                    labelText: 'Name of the counselor for my spiritual \npath',
                   ),
                   const SizedBox(
                     height: 15,
@@ -86,24 +89,24 @@ class _SpiritualDetailsState extends State<SpiritualDetails> {
                   const SizedBox(
                     height: 15,
                   ),
-                  CustomTextField(
-                    controller: city,
-                    maxline: null,
-                    labelText: 'Counselor residing in State',
+                  buildDropdown(
+                    'Counselor residing in state',
+                    StateController.stateRegion(),
+                    stateController.selectedItem.call,
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  buildDropdown(
+                    'Counselor residing in city',
+                    StateController.stateRegion(),
+                    stateController.selectedItem.call,
                   ),
                   const SizedBox(
                     height: 15,
                   ),
                   CustomTextField(
-                    controller: something,
-                    maxline: null,
-                    labelText: 'Counselor residing in City',
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  CustomTextField(
-                    maxline: 5,
+                    maxline: 4,
                     controller: name,
                     labelText: 'Something more about the counsellor',
                   ),

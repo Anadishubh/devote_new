@@ -1,4 +1,3 @@
-import 'package:devotee_matrimony/constants/CustomTextFeild.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants/button_constant.dart';
@@ -80,22 +79,28 @@ class _ProfessionalDetailsPageState extends State<ProfessionalDetailsPage> {
                         fontSize: 16, color: Colors.black),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Expanded(
+                      Flexible(
                         child: RadioListTile<int>(
+                          contentPadding: EdgeInsets.zero,
                           title: const Text('Yes'),
                           activeColor: AppColors.primaryColor,
                           value: 1,
                           groupValue: selectedValue,
                           onChanged: (int? value) {
-                            setState(() {
-                              selectedValue = value;
-                            });
+                            setState(
+                              () {
+                                selectedValue = value;
+                              },
+                            );
                           },
                         ),
                       ),
-                      Expanded(
+                      Flexible(
+                        flex: 3,
                         child: RadioListTile<int>(
+                          contentPadding: EdgeInsets.zero,
                           title: const Text('No'),
                           activeColor: AppColors.primaryColor,
                           value: 2,
@@ -110,47 +115,39 @@ class _ProfessionalDetailsPageState extends State<ProfessionalDetailsPage> {
                     ],
                   ),
                   const SizedBox(height: 15),
-                  const CustomTextField(
-                    labelText: 'Company name',
+                  buildDropdown(
+                    'Employment',
+                    QualificationController.qualifications(),
+                    qualificationController.selectedItem.call,
+                    hintText: 'Private sector',
                   ),
                   const SizedBox(height: 15),
-                  const CustomTextField(
-                    labelText: 'Working State',
+                  buildDropdown(
+                    'Working state',
+                    QualificationController.qualifications(),
+                    qualificationController.selectedItem.call,
+                    hintText: 'Choose',
                   ),
                   const SizedBox(height: 15),
-                  const CustomTextField(
-                    labelText: 'Working city',
+                  buildDropdown(
+                    'Working city',
+                    QualificationController.qualifications(),
+                    qualificationController.selectedItem.call,
+                    hintText: 'Choose',
                   ),
                   const SizedBox(height: 15),
-                  const CustomTextField(
-                    labelText: 'Work experience',
+                  buildDropdown(
+                    'Pin Code',
+                    QualificationController.qualifications(),
+                    qualificationController.selectedItem.call,
+                    hintText: 'Choose',
                   ),
                   const SizedBox(height: 15),
-                  Text(
-                    'Income earning range (in a year)',
-                    style: FontConstant.styleRegular(
-                        fontSize: 16, color: Colors.black),
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: buildDropdown(
-                          null,
-                          QualificationController.qualifications(),
-                          qualificationController.selectedItem.call,
-                          hintText: 'Range from',
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: buildDropdown(
-                          null,
-                          QualificationController.qualifications(),
-                          qualificationController.selectedItem.call,
-                          hintText: 'Range to',
-                        ),
-                      ),
-                    ],
+                  buildDropdown(
+                    'Annual salary range',
+                    QualificationController.qualifications(),
+                    qualificationController.selectedItem.call,
+                    hintText: 'INR 0 - 1 lakhs',
                   ),
                   const SizedBox(height: 30),
                   Padding(

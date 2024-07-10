@@ -1,3 +1,5 @@
+import 'package:devotee_matrimony/constants/custom_dropdown.dart';
+import 'package:devotee_matrimony/constants/profile_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants/CustomTextFeild.dart';
@@ -13,12 +15,14 @@ class Location extends StatefulWidget {
 }
 
 class _LocationState extends State<Location> {
-  TextEditingController name = TextEditingController();
+  TextEditingController pinCode = TextEditingController();
   TextEditingController connect = TextEditingController();
   TextEditingController temple = TextEditingController();
   TextEditingController state = TextEditingController();
   TextEditingController city = TextEditingController();
   TextEditingController something = TextEditingController();
+  CountryController countryController = Get.put(CountryController());
+  StateController stateController = Get.put(StateController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +51,7 @@ class _LocationState extends State<Location> {
             child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     margin: const EdgeInsets.only(top: 15),
@@ -57,48 +62,187 @@ class _LocationState extends State<Location> {
                       width: 92,
                     ),
                   ),
-                  CustomTextField(
-                    controller: name,
-                    labelText: 'Name of the Counselor for my Spiritual Path',
+                  const SizedBox(
+                    height: 10,
                   ),
+                  buildDropdown('Nationality', CountryController.countryList(),
+                      countryController.selectedItem.call,
+                      hintText: 'India'),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  buildDropdown(
+                      'Residence type',
+                      CountryController.countryList(),
+                      countryController.selectedItem.call,
+                      hintText: 'Visa/Student visa'),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  buildDropdown('House type', CountryController.countryList(),
+                      countryController.selectedItem.call,
+                      hintText: 'Own'),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    'Permanent Address Location',
+                    style: FontConstant.styleMedium(
+                        fontSize: 18, color: AppColors.primaryColor),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    height: 1,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(color: Colors.grey),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  buildDropdown('State', StateController.stateRegion(),
+                      stateController.selectedItem.call,
+                      hintText: 'Uttar Pradesh'),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  buildDropdown('City', StateController.stateRegion(),
+                      stateController.selectedItem.call,
+                      hintText: 'Select'),
                   const SizedBox(
                     height: 15,
                   ),
                   CustomTextField(
-                    controller: connect,
-                    labelText: 'Connected with my Counselor Since - Year',
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  CustomTextField(
-                    controller: state,
-                    labelText:
-                        'With which temple your counsellor is connected to?"',
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  CustomTextField(
-                    controller: city,
-                    labelText: 'Counselor residing in State',
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  CustomTextField(
-                    controller: something,
-                    labelText: 'Counselor residing in City',
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  CustomTextField(
-                    maxline: 5,
-                    controller: name,
-                    labelText: 'Something more about the counsellor',
+                    maxline: 1,
+                    controller: pinCode,
+                    labelText: 'Pin Code',
                   ),
                   const SizedBox(height: 30),
+                  Text(
+                    'Temporary Address Location',
+                    style: FontConstant.styleMedium(
+                        fontSize: 18, color: AppColors.primaryColor),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    height: 1,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(color: Colors.grey),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  buildDropdown('State', StateController.stateRegion(),
+                      stateController.selectedItem.call,
+                      hintText: 'Uttar Pradesh'),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  buildDropdown('City', StateController.stateRegion(),
+                      stateController.selectedItem.call,
+                      hintText: 'Select'),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  CustomTextField(
+                    maxline: 1,
+                    controller: pinCode,
+                    labelText: 'Pin Code',
+                  ),
+                  const SizedBox(height: 30),
+                  Text(
+                    'Reference 1',
+                    style: FontConstant.styleMedium(
+                        fontSize: 18, color: AppColors.primaryColor),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    height: 1,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(color: Colors.grey),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  buildDropdown('Relation', StateController.stateRegion(),
+                      stateController.selectedItem.call,
+                      hintText: 'Family'),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  CustomTextField(
+                    maxline: 1,
+                    controller: pinCode,
+                    labelText: 'Name',
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  CustomTextField(
+                    maxline: 1,
+                    controller: pinCode,
+                    labelText: 'Email',
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  CustomTextField(
+                    maxline: 1,
+                    controller: pinCode,
+                    labelText: 'Mobile',
+                  ),
+                  const SizedBox(height: 30),
+                  Text(
+                    'Reference 2',
+                    style: FontConstant.styleMedium(
+                        fontSize: 18, color: AppColors.primaryColor),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    height: 1,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(color: Colors.grey),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  buildDropdown('Relation', StateController.stateRegion(),
+                      stateController.selectedItem.call,
+                      hintText: 'Family'),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  CustomTextField(
+                    maxline: 1,
+                    controller: pinCode,
+                    labelText: 'Name',
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  CustomTextField(
+                    maxline: 1,
+                    controller: pinCode,
+                    labelText: 'Email',
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  CustomTextField(
+                    maxline: 1,
+                    controller: pinCode,
+                    labelText: 'Mobile',
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: CustomButton(
@@ -113,19 +257,6 @@ class _LocationState extends State<Location> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 15),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                    child: CustomButton(
-                      text: 'Skip',
-                      onPressed: () {
-                        Get.offAndToNamed('/dashboard');
-                      },
-                      color: Colors.transparent,
-                      textStyle: FontConstant.styleRegular(
-                          fontSize: 20, color: Colors.black),
-                    ),
-                  )
                 ],
               ),
             ),
